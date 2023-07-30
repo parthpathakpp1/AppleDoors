@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=REM:wght@600&display=swap');
+.App {
+    position: relative;
+    overflow-x: clip;
+}
+
+.door-cards-container {
+    display: flex;
+    justify-content: space-around; /* Adjust this property for spacing between cards */
+    flex-wrap: wrap; /* To wrap cards if the width is not enough to fit all in one row */
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-family: 'REM', sans-serif;
+    font-weight: bold;
+    color: var(--black);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+.App>:nth-child(1) {
+    background: var(--black);
+    position: relative;
+}
+
+.white-gradient {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    background: rgba(255, 255, 255, 0.522);
+    filter: blur(100px);
+}
