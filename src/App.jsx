@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Header from './components/Header/Header';
 import './App.css';
-import DoorCard from './components/Doorcard/Doorcard';
+import DoorCard from "./components/Doorcard/DoorCard";
 
 const App = () => {
   return (
