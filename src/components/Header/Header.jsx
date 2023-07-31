@@ -15,7 +15,7 @@ const Header = () => {
     return (
         <section className='h-wrapper'>
             <div className='container'>
-                <img src='./logo.png' alt='logo' className='logo' width={150} />
+                <img src='../../../public/logo.png' alt='logo' className='logo' width={150} />
                 <OutsideClickHandler
                     onOutsideClick={() => {
                         setMenuOpened(false);

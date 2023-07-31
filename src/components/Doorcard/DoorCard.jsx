@@ -1,6 +1,7 @@
 // components/DoorCard/DoorCard.jsx
 import React from 'react';
 import './DoorCard.css';
+import { Link } from 'react-router-dom';
 
 const DoorCard = ({ imageUrl, doorName }) => {
   return (
@@ -10,8 +11,10 @@ const DoorCard = ({ imageUrl, doorName }) => {
         <h3>{doorName}</h3>
         <div className="buttons">
           <button className="btn-add-to-cart">Add to Cart</button>
-          <button className="btn-customize">Customize</button>
-        </div>
+            <Link to={`customization/${doorName}`} >
+            <button className="btn-customize">Customize</button>
+          </Link>       
+         </div>
       </div>
     </div>
   );
