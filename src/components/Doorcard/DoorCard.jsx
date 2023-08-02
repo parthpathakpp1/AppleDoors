@@ -1,9 +1,6 @@
 import React from 'react';
 import './DoorCard.css';
-<<<<<<< HEAD
 import { motion } from 'framer-motion';
-=======
->>>>>>> 4306cf5c375e25bc65388225334333380747db3d
 import { Link } from 'react-router-dom';
 
 const DoorCard = ({ imageUrl, doorName }) => {
@@ -19,7 +16,6 @@ const DoorCard = ({ imageUrl, doorName }) => {
   };
 
   return (
-<<<<<<< HEAD
     <motion.div
       className='Doorcard-container'
       variants={cardVariants}
@@ -76,20 +72,6 @@ const DoorCard = ({ imageUrl, doorName }) => {
         </div>
       </motion.div>
     </motion.div>
-=======
-    <div className="door-card">
-      <img src={imageUrl} alt={doorName} className="door-image" />
-      <div className="door-content">
-        <h3>{doorName}</h3>
-        <div className="buttons">
-          <button className="btn-add-to-cart">Add to Cart</button>
-            <Link to={`customization/${doorName}`} >
-            <button className="btn-customize">Customize</button>
-          </Link>       
-         </div>
-      </div>
-    </div>
->>>>>>> 4306cf5c375e25bc65388225334333380747db3d
   );
 };
 
