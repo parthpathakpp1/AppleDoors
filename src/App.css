@@ -6,18 +6,25 @@
 
 .door-cards-container {
     display: flex;
-    justify-content: space-around; /* Adjust this property for spacing between cards */
-    flex-wrap: wrap; /* To wrap cards if the width is not enough to fit all in one row */
+    justify-content: space-around; 
+    flex-wrap: wrap; 
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-family: 'REM', sans-serif;
     font-weight: bold;
     color: var(--black);
     margin-bottom: 20px;
     text-align: center;
+    padding-top: 25px;
+   
   }
+
+  h1>span{
+    color: #ff3c78;
+}
+  
   
 .App>:nth-child(1) {
     background: var(--black);

@@ -13,6 +13,7 @@
   transform: scale(1.05);
   z-index: 1;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+ 
 }
 
 .door-image {
@@ -58,6 +59,7 @@ button {
 .btn-customize {
   background-color: #444444; 
   color: white;
+  padding: 15px 10px 15px 10px;
 }
 
 

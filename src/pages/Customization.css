@@ -1,0 +1,123 @@
+.door-showcase{
+    background: linear-gradient(90deg, #fff, #eee);
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3px;
+    position: relative;
+}
+
+.wrapper {
+    perspective: 100px;
+}
+
+.door {
+    transform-style: preserve-3d;
+    width: 27.0625em;
+    height: 40.5em;
+    transform-origin: 13.53125em 4.375em;
+    position: relative;
+}
+
+.door > div {
+    position: absolute;
+    height: 40.5em;
+}
+
+.front, .back, .side {
+    background-size: cover;
+    pointer-events: none;
+}
+
+.front {
+    width: 27.0625em;
+    background: url(../images/Door1.png);
+    transform: translate3d(0,0,2.1875em);
+}
+
+.side {
+    width: 4.375em;
+    transform: rotateY(-90deg) translate3d(0,0,2.1875em);
+    background: black;
+}
+
+.back {
+    width: 27.0625em;
+    background: url(../images/Door2.png);
+    transform: rotateY(180deg) translate3d(0,0,2.1875em);
+}
+
+.pages {
+    width: 4.375em;
+    background: #ccc;
+    transform: rotateY(90deg) translate3d(0,0,24.9em);
+    transform-origin: bottom;
+}
+
+.door .shadow {
+    width: 27.0625em;
+    height: 4.375em;
+    background: radial-gradient(rgba(0,0,0,0.4), transparent);
+    transform: rotateX(90deg) translate3d(0,2.1875em, -38em);
+    transform-origin: bottom;
+}
+
+.customization-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px auto; /* Add margin here to create space between the door showcase and h2/p */
+    max-width: 800px;
+    padding-top: 25px;
+    padding-bottom: 50px;
+}
+
+.customization-page h2 {
+    font-size: 3em;
+    color: #333; /* Replace with a suitable color from your color scheme */
+}
+
+.customization-page p {
+    font-size: 1.5rem;
+    color: #777; /* Replace with a suitable color from your color scheme */
+}
+
+/* ... (existing styles) ... */
+
+.sidebar {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 100;
+    transition: all 0.3s ease; /* Added animation for the sidebar */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Added a shadow for better visibility */
+  }
+  
+  .sidebar button {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border: none;
+    background-color: #2196F3; /* Set the default button color */
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Added animation for button hover */
+  }
+  
+  .sidebar button:hover {
+    background-color: #007bff; /* Change button color on hover */
+  }
+  
+  .sidebar button:last-child {
+    margin-bottom: 0; /* Remove margin for the last button */
+  }
+  
