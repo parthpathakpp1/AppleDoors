@@ -3,9 +3,12 @@ import { Routes, Route } from "react-router-dom";
 import Header from './components/Header/Header';
 import './App.css';
 import DoorCard from "./components/Doorcard/DoorCard";
+<<<<<<< HEAD
 import FilterSection from "./components/FilterSection/FilterSection";
 import Loader from "./components/loader/Loader";
 
+=======
+>>>>>>> 4306cf5c375e25bc65388225334333380747db3d
 
 const App = () => {
   const [loaded, setLoaded] = useState(false);

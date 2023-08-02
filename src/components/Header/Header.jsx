@@ -14,7 +14,19 @@ const Header = () => {
     if (document.documentElement.clientWidth <= 800) {
       return { right: !menuOpened && "-100%" };
     }
+<<<<<<< HEAD
   };
+=======
+    return (
+        <section className='h-wrapper'>
+            <div className='container'>
+                <img src='../../../public/logo.png' alt='logo' className='logo' width={150} />
+                <OutsideClickHandler
+                    onOutsideClick={() => {
+                        setMenuOpened(false);
+                    }}
+                >
+>>>>>>> 4306cf5c375e25bc65388225334333380747db3d
 
 
   const menuVariants = {
