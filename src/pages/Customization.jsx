@@ -1,16 +1,11 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion'; // Import motion from framer-motion
-=======
-import React from 'react';
->>>>>>> 4306cf5c375e25bc65388225334333380747db3d
 import Header from '../components/Header/Header';
 import './Customization.css';
 import { useParams } from 'react-router-dom';
 
 const Customization = () => {
   const { doorName } = useParams();
-<<<<<<< HEAD
 
   const [rotation, setRotation] = useState(0);
 
@@ -120,15 +115,6 @@ const Customization = () => {
           </motion.div>
         </div>
       </section>
-=======
-  return (
-    <>
-    <Header />
-    <div className="customization-page">
-      <h2>Customization</h2>
-      <p>This is the customization page of {doorName}.</p>
-    </div>
->>>>>>> 4306cf5c375e25bc65388225334333380747db3d
     </>
   );
 };
