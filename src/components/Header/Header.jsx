@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import "./Header.css";
 import { BiMenuAltRight } from "react-icons/bi";
+import {Link} from 'react-router-dom'
 import { motion } from 'framer-motion';
 import OutsideClickHandler from 'react-outside-click-handler';
-import CarouselSection from '../CarouselSection';
+
 
 
 
@@ -40,15 +41,17 @@ const Header = () => {
     <>
     <header className='h-wrapper'>
       <div className='container'>
-        <motion.img
-          src='/logo.png'
-          alt='logo'
-          className='logo'
-          width={150}
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        />
+      <Link to="/"> {/* Add Link component with 'to' prop set to '/' */}
+          <motion.img
+            src='/logo.png'
+            alt='logo'
+            className='logo'
+            width={150}
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          />
+        </Link>
         <OutsideClickHandler
           onOutsideClick={() => {
             setMenuOpened(false);
@@ -95,7 +98,6 @@ const Header = () => {
         </div>
       </div>
     </header>
-      <CarouselSection />
       </>
   );
 };

@@ -1,15 +1,15 @@
 .door-showcase{
     background: linear-gradient(90deg, #fff, #eee);
-    min-height: 30vh;
+    min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 3px;
+    font-size: 12px;
     position: relative;
 }
 
 .wrapper {
-    perspective: 100px;
+    perspective: 1000px;
 }
 
 .door {
@@ -32,7 +32,7 @@
 
 .front {
     width: 27.0625em;
-    background: url(../images/Door1.png);
+    /* background: url(/Door1.png); */
     transform: translate3d(0,0,2.1875em);
 }
 
@@ -40,11 +40,11 @@
     width: 4.375em;
     transform: rotateY(-90deg) translate3d(0,0,2.1875em);
     background: black;
-}
+} 
 
 .back {
     width: 27.0625em;
-    background: url(../images/Door2.png);
+    /* background: url(/Door1.png); */
     transform: rotateY(180deg) translate3d(0,0,2.1875em);
 }
 
@@ -68,7 +68,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin: 20px auto; /* Add margin here to create space between the door showcase and h2/p */
+    margin: 20px auto;
     max-width: 800px;
     padding-top: 25px;
     padding-bottom: 50px;
@@ -76,15 +76,13 @@
 
 .customization-page h2 {
     font-size: 3em;
-    color: #333; /* Replace with a suitable color from your color scheme */
+    color: #333; 
 }
 
 .customization-page p {
     font-size: 1.5rem;
-    color: #777; /* Replace with a suitable color from your color scheme */
+    color: #777; 
 }
-
-/* ... (existing styles) ... */
 
 .sidebar {
     position: fixed;
@@ -98,26 +96,38 @@
     padding: 10px;
     border-radius: 5px;
     z-index: 100;
-    transition: all 0.3s ease; /* Added animation for the sidebar */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Added a shadow for better visibility */
+    transition: all 0.3s ease; 
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
   
   .sidebar button {
     margin-bottom: 10px;
     padding: 8px 12px;
     border: none;
-    background-color: #2196F3; /* Set the default button color */
+    background-color: #2196F3;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Added animation for button hover */
+    transition: background-color 0.3s ease; 
   }
   
   .sidebar button:hover {
-    background-color: #007bff; /* Change button color on hover */
+    background-color: #007bff;
   }
   
   .sidebar button:last-child {
-    margin-bottom: 0; /* Remove margin for the last button */
+    margin-bottom: 0;
   }
   
+  @media screen and (max-width: 600px) {
+    .sidebar {
+      left: 75px;
+      display: flex;
+      flex-direction: row;
+      top: 70%;
+    }
+  
+    .sidebar button {
+      width: 100%;
+    }
+  }

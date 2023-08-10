@@ -1,19 +1,18 @@
-/* components/DoorCard/DoorCard.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.Doorcard-container {
+  display: inline-block;
+  margin: 10px;
+}
+
 .door-card {
-  border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 200px;
-  margin: 10px;
-  transition: transform 0.3s ease;
-}
-
-.door-card:hover {
-  transform: scale(1.05);
-  z-index: 1;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
- 
+  width: 270px; /* Increase the width */
+  height: 460px; /* Increase the height */
+  padding: 15px; /* Increase padding for a larger hover effect */
+  position: relative;
 }
 
 .door-image {
@@ -33,36 +32,34 @@
   text-align: center;
 }
 
-.buttons {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
+.button-container {
+  text-align: center; /* Center buttons horizontally */
+  margin-top: 15px; /* Add space between door name and buttons */
 }
 
-button {
+.btn-customize,
+.btn-add-to-cart {
   padding: 8px 12px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  color: white; /* Set text color to white */
+  transition: background-color 0.3s; /* Add transition for hovering effect */
 }
-
-
-.btn-add-to-cart {
-  background-color: #ff3c78; 
-  color: white;
-  margin-right: 10px; 
-}
-
 
 .btn-customize {
-  background-color: #444444; 
-  color: white;
-  padding: 15px 10px 15px 10px;
+  background-color: black; /* Change background color to black */
+  margin-right: 12px;
 }
 
+.btn-add-to-cart {
+  margin-top: 10px; /* Add margin between buttons */
+  background-color: black; /* Change background color to black */
+}
 
-button:hover {
-  background-color: #17252A; 
+.btn-customize:hover,
+.btn-add-to-cart:hover {
+  background-color: #17252A; /* Change background color on button hover */
 }

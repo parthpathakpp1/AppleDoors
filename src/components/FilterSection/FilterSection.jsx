@@ -26,15 +26,11 @@ const FilterSection = ({ handleChange, clearFilter }) => {
 
   return (
     <div>
-      {/* Top Display */}
       <div className="filter_wrapper">
-        {/* Clothes Category */}
         <div></div>
-        {/* Filters */}
         <div>
           {toggle ? (
             <div className="">
-              {/* Button */}
               <div
                 className="filter_button"
                 onClick={() => setToggle(false)}
@@ -55,8 +51,6 @@ const FilterSection = ({ handleChange, clearFilter }) => {
                   />
                 </svg>
               </div>
-
-              {/* Filter Menu */}
               <div className="filter_menu">
                 <button
                   type="button"

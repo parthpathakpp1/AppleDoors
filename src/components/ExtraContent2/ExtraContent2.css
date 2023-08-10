@@ -1,0 +1,115 @@
+.pattern__white{
+    background-image: url("https://ik.imagekit.io/durian1985/assets/images/pattern-bg-white.svg");
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}   
+
+.section-space1 {
+    padding: 80px 0;
+}
+
+.custom-container1 {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.row1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.col1 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading-in1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.heading-in__title1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.heading-in__subtitle1 {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.theme-box--doors {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.theme-box__ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.theme-box__li {
+    width: calc(33.33% - 10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-box__link {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.theme-box__link img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.theme-box__link:hover {
+    transform: scale(1.05);
+}
+
+.button-wrap1 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn1 {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn1:hover {
+    background-color: #e0245d   ;
+    
+}

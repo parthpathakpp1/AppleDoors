@@ -22,7 +22,7 @@ const Loader = () => {
     >
       {loading ? (
         <ClipLoader
-          color={'#123abc'} // Replace with your desired color
+          color={'#123abc'} 
           loading={loading}
           size={100}
           aria-label="Loading Spinner"
