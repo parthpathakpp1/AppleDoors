@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 :root {
-  --primary: #1f3e72;
+  --primary:  #ff3c78;
   --secondary: rgba(255, 255, 255, 0.78);
   --black: #131110;
   --blue-gradient: linear-gradient(97.05deg, #4066ff 3.76%, #2949c6 100%);
@@ -84,7 +84,6 @@ a {
   font-weight: 600;
 }
 
-/* media queries */
 @media (min-width: 1536px) {
   .innerWidth {
     max-width: 1280px;

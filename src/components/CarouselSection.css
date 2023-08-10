@@ -1,0 +1,60 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+.banner-slide {
+  position: relative;
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  line-height:4rem ;
+}
+
+.heading {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.subheading {
+  font-size: 1.5rem;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.discover-button {
+  padding: 10px 20px;
+  background-color: #ff3c78;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.discover-button:hover {
+  background-color: #d62f69;
+  }
+
+  @media (max-width: 480px) {
+    .banner-content {
+      line-height: 1.1rem;
+    }
+  
+    .heading {
+      font-size: 1rem;
+    }
+  
+    .subheading {
+      font-size: 0.5rem;
+    }
+    .discover-button{
+      font-size: 0.5rem;
+    }
+  }

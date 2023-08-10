@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion'; // Import motion from framer-motion
+import { motion } from 'framer-motion'; 
 import Header from '../components/Header/Header';
 import './Customization.css';
 import { useParams } from 'react-router-dom';
