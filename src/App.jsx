@@ -73,7 +73,7 @@ const App = () => {
             </div>
           <WhyChooseUs />
           <Contact />
-          {/* <LandingFooter /> */}
+          <LandingFooter />
         </>
       ) : (
         <Loader />
