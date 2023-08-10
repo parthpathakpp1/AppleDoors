@@ -1,20 +1,18 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App";
-import Customization from "./pages/Customization";
+// Router.jsx
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import App from './App';
+import Customization from './pages/Customization';
 
 const Router = () => {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <App />,
-    },
-    {
-      path: "customization/:doorName",
-      element: <Customization />,
-    },
-  ]);
-
-  return <RouterProvider router={router} />;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/customization/:doorName" element={<Customization />} /> {/* Add this route */}
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default Router;
