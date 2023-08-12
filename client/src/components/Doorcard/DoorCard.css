@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.Doorcard-container {
+  display: inline-block;
+  margin: 10px;
+}
+
+.door-card {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 270px;
+  height: 500px; /* Adjusted the height for better spacing */
+  padding: 15px;
+  position: relative;
+  transition: transform 0.3s ease; /* Added transition for smooth hover effect */
+}
+
+.door-card:hover {
+  transform: translateY(-5px); /* Lift the card on hover */
+}
+
+.door-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.door-content {
+  padding: 10px;
+  text-align: center;
+}
+
+.door-content h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.door-price {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #555;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.btn-customize,
+.btn-add-to-cart {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.btn-customize {
+  background-color: black;
+  margin-right: 12px;
+}
+
+.btn-add-to-cart {
+  margin-top: 10px;
+  background-color: black;
+}
+
+.btn-customize:hover,
+.btn-add-to-cart:hover {
+  background-color: #17252A;
+}
