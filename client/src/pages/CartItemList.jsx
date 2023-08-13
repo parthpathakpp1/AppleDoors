@@ -27,7 +27,7 @@ const CartItemList = () => {
             <img src={item.imageUrl} alt={item.doorName} className="cart-item-image" />
             <div className="cart-item-details">
               <p className="cart-item-name">{item.doorName}</p>
-              <p className="cart-item-price">${item.price}</p>
+              <p className="cart-item-price">${item.price}</p> {/* Display the price here */}
               <div className="item-quantity">
                 <label>Quantity:</label>
                 <input
@@ -46,3 +46,4 @@ const CartItemList = () => {
 };
 
 export default CartItemList;
+  

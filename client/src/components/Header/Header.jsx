@@ -69,7 +69,19 @@ const Header = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
-                Login/Signup
+              <Link to="/register">
+                Signup
+                </Link>
+              </motion.a>
+              <motion.a
+                className='active active-color'
+                href=""
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+              <Link to="/login">
+                Login
+                </Link>
               </motion.a>
               <motion.a
                 href=""

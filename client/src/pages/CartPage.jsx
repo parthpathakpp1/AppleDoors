@@ -7,8 +7,13 @@ import { useCart } from '../context/cart';
 
 const CartPage = () => {
   const [cart] = useCart();
+
   const getTotalItems = () => {
     return cart.reduce((total, item) => total + item.quantity, 0);
+  };
+
+  const getTotalPrice = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
   return (
@@ -29,7 +34,8 @@ const CartPage = () => {
               <h2 className="cart-summary-heading">Cart Summary</h2>
               <p>Total | Checkout | Payment</p>
               <hr />
-              <h4 className="cart-total">Total : {/* Display the total amount here */}</h4>
+              <h4 className="cart-total">Total : ${getTotalPrice().toFixed(2)}</h4>
+              {/* Display the total amount with two decimal places */}
               <button className="checkout-button">Checkout</button>
             </div>
           </div>

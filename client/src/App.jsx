@@ -41,13 +41,13 @@ const App = () => {
           <FilterSection />
           <div className="door-cards-container">
           {productData.map((product) => (
-            <DoorCard
-              key={product.imageUrl} // Use imageUrl as the key
-              imageUrl={product.imageUrl}
-              doorName={product.doorName}
-              price={product.price}
-            />
-          ))}
+  <DoorCard
+    key={product.imageUrl}
+    imageUrl={product.imageUrl}
+    doorName={product.doorName}
+    price={product.price} // Pass the price property
+  />
+))}
         </div>
           <WhyChooseUs />
           <Contact />
