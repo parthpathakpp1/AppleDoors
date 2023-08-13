@@ -10,6 +10,8 @@
   margin-bottom: 20px;
   background-color: #fff;
   width: 110%;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
 }
 
 .cart-item-image {

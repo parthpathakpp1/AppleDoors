@@ -25,7 +25,10 @@
           position: toast.POSITION.BOTTOM_RIGHT
         });
       } else {
-        const updatedCart = [...cart, { imageUrl, doorName }];
+        const updatedCart = [
+          ...cart,
+          { imageUrl, doorName, price, quantity: 1 } // Include price and set default quantity to 1
+        ];
         setCart(updatedCart);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
         toast.success('Added to Cart', {
@@ -33,6 +36,7 @@
         });
       }
     };
+    
 
     return (
       <motion.div
@@ -50,7 +54,7 @@
           />
           <div className="door-content">
             <h3>{doorName}</h3>
-            <p className="door-price">${price}</p>
+            <p className='door-price'>${price}</p>
             <div className="button-container">
               <Link to={`/customization/${encodeURIComponent(doorName)}`}>
                 <motion.button className="btn-customize">Customize</motion.button>
