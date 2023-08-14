@@ -9,8 +9,9 @@ import Register from './pages/Auth/register/Register';
 import Login from './pages/Auth/login/Login';
 import { AuthProvider } from './context/auth';
 import ForgotPassword from './pages/Auth/forgot/ForgotPassword';
-import Dashboard from './pages/user/Dashboard';
-import PrivateRoute from './components/Routes/Private';
+import Profile from './pages/user/Profile';
+
+
 
 
 const Router = () => {
@@ -20,13 +21,9 @@ const Router = () => {
   <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        
+        <Route path="/profile" element={<Profile />} />
         <Route path="/register" element={<Register />} />
-        <Route path='/dashboard' element={<PrivateRoute />}>
-         <Route path="" element={<Dashboard />} />
-        </Route>
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/dashboard" element={<Dashboard/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/customization/:doorName" element={<Customization />} /> 
         <Route path='/cart' element={<CartPage />} />

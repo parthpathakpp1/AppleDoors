@@ -4,6 +4,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import LandingFooter from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
+import "./Register.css"; 
+import { toast,ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -26,8 +29,10 @@ const Register = () => {
         answer
       });
       if (res && res.data.success) {
+        toast.success("Registered Successfully");
         navigate("/login");
       } else {
+        toast.error("Something went wrong");
         console.log("error");
       }
     } catch (error) {
@@ -44,11 +49,13 @@ const Register = () => {
   return (
     <>
       <Header />
+      <ToastContainer />
       <div className="authpage_godparent">
         <div className="authpage_parent">
           <div className="authpage_rightdiv">
+          <button  onClick={() => navigate("/")} className="btn authpage_floatingbtn authpage_goback"><div> Go back</div></button>
             <form onSubmit={handleSubmit} className="authform">
-              <h1 className="">Join Apple Doors</h1>
+              <h1 className="authform_heading">Join Apple Doors</h1>
 
               <div className="authform_container">
                 <input
@@ -75,23 +82,24 @@ const Register = () => {
               </div>
 
               <div className="authform_container">
-                <input
-                  type="{passwordType}"
-                  className="form-control"
-                  name="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  placeholder="Password"
-                />
+              <input
+  type={passwordType} 
+  className="form-control"
+  name="password"
+  value={password}
+  onChange={(e) => setPassword(e.target.value)}
+  required
+  placeholder="Password"
+/>
 
-                <button
-                  type="button"
-                  onClick={passwordToggle}
-                  className="toggle-button"
-                >
-                  {passwordType === "password" ? "Show" : "Hide"}
-                </button>
+<button
+  type="button"
+  onClick={passwordToggle}
+  className="toggle-button"
+>
+  {passwordType === "password" ? "Show" : "Hide"}
+</button>
+
               </div>
 
               <div className="authform_container">
@@ -136,10 +144,7 @@ const Register = () => {
             </form>
           </div>
           <div className="authpage_leftdiv">
-            <img
-              src="https://milanhub.org/assets/authbannerimg-90821bd2.webp"
-              alt="Auth Banner"
-            />
+          <button onClick={() => navigate("/login")} className="btn authpage_floatingbtn">Have an account? Login</button>
           </div>
         </div>
       </div>
