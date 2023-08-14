@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Header from '../components/Header/Header';
 import CartItemList from './CartItemList';
 import LandingFooter from '../components/Footer/Footer';
@@ -7,6 +7,9 @@ import { useCart } from '../context/cart';
 
 const CartPage = () => {
   const [cart] = useCart();
+  const [auth,setAuth]=useAuth();
+  const navigate = useNavigate();
+  const [orderPlaced, setOrderPlaced] = useState(false);
 
   const getTotalItems = () => {
     return cart.reduce((total, item) => total + item.quantity, 0);
@@ -22,8 +25,11 @@ const CartPage = () => {
       <div className="cart-page">
         <div className="cart-content">
         <div className='cart-heading-content'>
-        <h2 className="cart-heading">Your Cart</h2>
-          <p className="cart-item-count">Items in Cart: {getTotalItems()}</p>
+        <h2 className="cart-heading">{`Hello  ${auth?.token && auth?.user?.name}`}</h2>
+          <p className="cart-item-count">   {cart?.length
+                                    ? `You Have ${getTotalItems()} items in your cart ${auth?.token ? "" : "please login to checkout !"
+                                    }`
+                                    : " Your Cart Is Empty"}</p>
         </div>
           
           <div className="cart-summary-section">
@@ -41,7 +47,7 @@ const CartPage = () => {
           </div>
         </div>
       </div>
-      <LandingFooter /> 
+      <LandingFooter />
     </div>
   );
 };
