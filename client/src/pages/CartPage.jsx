@@ -16,6 +16,53 @@ const CartPage = () => {
     return cart.reduce((total, item) => total + item.price * item.quantity, 0);
   };
 
+  const loadScript = (src) => {
+    return new Promise((resovle) => {
+      const script = document.createElement('script');
+      script.src = src;
+
+      script.onload = () => {
+        resovle(true);
+      }
+
+      script.onerror = () => {
+        resovle(false);
+      }
+
+      document.body.appendChild(script)
+    })
+  }
+
+  const displayRazorpay = async (amount) => {
+    const res  = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+
+    if(!res){
+      alert('Unable to make Payment!');
+      return;
+    }
+
+    const options = {
+      key: 'rzp_test_Do9MIFfnRjXeSm', // razorpay_key
+      currency: 'INR',
+      amount: amount * 100 * 82.99,
+      name: 'Apple Doors',
+      description: 'Thanks for purchasing this product!',
+     
+      handler: function (response) {
+        alert('Payment Successful!', response.razorpay_payment_id);
+
+        if(response.razorpay_payment_id){
+          // save to db
+        }
+      },
+      prefill: {
+        name: 'Apple Doors'
+      }
+    }
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open()
+  } 
+
   return (
     <div className="cart">
       <Header />
@@ -36,7 +83,9 @@ const CartPage = () => {
               <hr />
               <h4 className="cart-total">Total : ${getTotalPrice().toFixed(2)}</h4>
               {/* Display the total amount with two decimal places */}
-              <button className="checkout-button">Checkout</button>
+              <button onClick={() =>{
+                displayRazorpay(getTotalPrice().toFixed(2));
+              }} className="checkout-button">Checkout</button>
             </div>
           </div>
         </div>
