@@ -4,12 +4,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import LandingFooter from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
-import { useAuth } from "../../../context/auth";
 
-const Login = () => {
+
+const ForgotPassword = () => {
     const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [auth,setAuth]=useAuth();
+    const [newPassword, setNewPassword] = useState("");
+    const [answer, setAnswer] = useState("");
+  
     
     const navigate = useNavigate();
     
@@ -21,20 +22,15 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("http://localhost:8080/api/v1/auth/login", {
+            const res = await axios.post("http://localhost:8080/api/v1/auth/forgot-password", {
                 email,
-                password,
+                newPassword,
+                answer
               
                
             });
             if (res && res.data.success) {
-              setAuth({
-                ...auth,
-                user:res.data.user,
-                token:res.data.token
-              });
-              localStorage.setItem('auth',JSON.stringify(res.data));
-                navigate("/");
+                navigate("/login");
             } else {
                 console.log("error");
             }
@@ -48,15 +44,14 @@ const Login = () => {
   const passwordToggle = () => {
     setPasswordType(passwordType === "password" ? "text" : "password");
   };
-
   return (
     <>
-      <Header />
-      <div className="authpage_godparent">
+        <Header />
+        <div className="authpage_godparent">
         <div className="authpage_parent">
           <div className="authpage_rightdiv">
             <form onSubmit={handleSubmit} className="authform">
-              <h1 className="">Join Milan Today</h1>
+              <h1 className="">Reset Password</h1>
 
 
               <div className="authform_container">
@@ -70,14 +65,25 @@ const Login = () => {
                   placeholder="Email address"
                 />
               </div>
+              <div className="authform_container">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="email"
+                  value={answer}
+                  onChange={(e) => setAnswer(e.target.value)}
+                  required
+                  placeholder="Your favoutie sport"
+                />
+              </div>
 
               <div className="authform_container">
                 <input
                   type={passwordType}
                   className="form-control"
                   name="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
                   required
                   placeholder="Password"
                 />
@@ -98,12 +104,10 @@ const Login = () => {
                 }`}
                 disabled={isLoading}
               >
-                {isLoading ? "Loading..." : "Login"}
+                {isLoading ? "Loading..." : "Reset"}
               </button>
 
-              <button onClick={() => {navigate('/forgot-password')}}>
-                Forgot Password 
-              </button>
+          
             </form>
           </div>
           <div className="authpage_leftdiv">
@@ -114,9 +118,10 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <LandingFooter />
+        <LandingFooter />
     </>
-  );
-};
+    
+  )
+}
 
-export default Login;
+export default ForgotPassword

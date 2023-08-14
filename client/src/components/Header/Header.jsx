@@ -6,11 +6,21 @@ import { motion } from 'framer-motion';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { useCart } from '../../context/cart';
 import {Badge} from "antd";
+import { useAuth } from '../../context/auth';
 
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const [cart] = useCart();
+  const [auth,setAuth]=useAuth();
+  
+  const handleLogout = () => {
+    setAuth({
+      ...auth,user:null,token:''
+    })
+    localStorage.removeItem('auth')
+  }
+  
 
   const getMenuStyles = (menuOpened) => {
     if (document.documentElement.clientWidth <= 800) {
@@ -63,39 +73,54 @@ const Header = () => {
               initial="closed"
               animate={menuOpened ? "open" : "closed"}
             >
-              <motion.a
-                className='active active-color'
-                href=""
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-              <Link to="/register">
-                Signup
-                </Link>
-              </motion.a>
-              <motion.a
-                className='active active-color'
-                href=""
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-              <Link to="/login">
-                Login
-                </Link>
-              </motion.a>
-              <motion.a
-                href=""
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                Profile
-              </motion.a>
+
+            {
+              !auth.user ? (
+                <>
+                <motion.a
+            className='active active-color'
+            href=""
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <Link to="/register">Signup</Link>
+          </motion.a>
+          <motion.a
+            className='active active-color'
+            href=""
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <Link to="/login">Login</Link>
+          </motion.a>
+ 
+     
+              </>):(<>
+                <motion.a
+            className='active active-color'
+            href=""
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <Link onClick={handleLogout} to="/login">Logout</Link>
+          </motion.a>
+              </>)
+            }
+             
               <motion.a
                 href=""
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
                 Apple Studio
+              </motion.a>
+
+              <motion.a
+                href=""
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                Profile
               </motion.a>
               <Badge count={cart?.length} showZero>
   <Link to="/cart" className='cart-link'>

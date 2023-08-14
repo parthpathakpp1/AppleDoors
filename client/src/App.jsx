@@ -18,8 +18,10 @@ import productData from './productData.json'
 
 
 
+
 const App = () => {
   const [loaded, setLoaded] = useState(false);
+ 
 
   useEffect(() => {
     setTimeout(() => {
@@ -34,8 +36,7 @@ const App = () => {
           <Header />
           <ToastContainer />
           <CarouselSection />
-         
-          <ExtraContent />
+         <ExtraContent />
           <ExtraContent2 />
           <h1>Apple <span>Doors</span></h1> 
           <FilterSection />
