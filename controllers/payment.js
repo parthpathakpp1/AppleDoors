@@ -17,14 +17,14 @@ export const paymentController = async (req, res) => {
 
   pg.orders
     .createOrders({
-      orderId: orderId, 
+      orderId: orderId,
       orderAmount: amount, 
       orderCurrency: "INR",
       customerName: customerName,
       customerPhone: customerPhone, 
       customerEmail: customerEmail, 
       paymentModes: "cc, dc, nb, upi, paypal, wallet",
-      returnUrl: "http://localhost:5000/payment/response", // required
+      returnUrl: "http://localhost:5000/payment/response",
     })
     .then((response) => {
       res.json(response);
