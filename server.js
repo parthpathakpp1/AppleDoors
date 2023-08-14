@@ -27,6 +27,8 @@ app.use("/api/v1/auth", authRoutes);
 //     res.sendFile(path.join(__dirname, './client/build/index.html'));
 // });
 
+
+
 app.get('/', (req, res) => {
     res.send("<h1>WELCOME OTO ECOMMERCE APP 2023</h1>")
 });
