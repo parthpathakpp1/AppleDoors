@@ -52,7 +52,7 @@
   position: relative;
   font-size: 1.1rem;
   padding: 0 10px;
-  color: #a0a0a0;
+  color: white;
 }
 
 .h-menu a::after {
@@ -79,25 +79,8 @@
   color: white;
 }
 
-.h-menu a.active::after {
-  width: 100%;
-}
 
-.logo {
-  opacity: 0;
-  animation: fadeInLogo 1.5s ease-in-out forwards;
-  width: 50px; /* Increased logo size */
-  height: 50px; /* Increased logo size */
-}
 
-@keyframes fadeInLogo {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 
 .menu-icon {
   display: none;

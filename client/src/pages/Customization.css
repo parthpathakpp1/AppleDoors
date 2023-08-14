@@ -38,12 +38,12 @@
         transform: translate3d(0, 0, 2.1875em);
     }
     
-    .side {
+    /* .side {
       width: 4.375em;
       transform: rotateY(-90deg) translate3d(0,0,2.1875em);
       background: url('/bar1.jpg');
   }
- 
+  */
     
     .back {
         width: 27.0625em;

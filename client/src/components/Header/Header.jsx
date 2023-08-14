@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./Header.css";
 import { BiMenuAltRight } from "react-icons/bi";
-import {Link} from 'react-router-dom'
+import {Link,useLocation} from 'react-router-dom'
 import { motion } from 'framer-motion';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { useCart } from '../../context/cart';
@@ -13,6 +13,7 @@ const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const [cart] = useCart();
   const [auth,setAuth]=useAuth();
+  const location = useLocation();
   
   const handleLogout = () => {
     setAuth({
@@ -21,6 +22,9 @@ const Header = () => {
     localStorage.removeItem('auth')
   }
   
+  const isActiveLink = (pathname) => {
+    return location.pathname === pathname;
+  }
 
   const getMenuStyles = (menuOpened) => {
     if (document.documentElement.clientWidth <= 800) {
@@ -73,8 +77,27 @@ const Header = () => {
               initial="closed"
               animate={menuOpened ? "open" : "closed"}
             >
+            <Link to='/'>
+            <motion.a
+                href=""
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                Home
+              </motion.a>
+              </Link>
 
-            {
+              <motion.a
+                href=""
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+              <Link to="/profile">
+              Profile
+              </Link>
+              </motion.a>
+
+              {
               !auth.user ? (
                 <>
                 <motion.a
@@ -106,22 +129,6 @@ const Header = () => {
           </motion.a>
               </>)
             }
-             
-              <motion.a
-                href=""
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                Apple Studio
-              </motion.a>
-
-              <motion.a
-                href=""
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                Profile
-              </motion.a>
               <Badge count={cart?.length} showZero>
   <Link to="/cart" className='cart-link'>
     <motion.a

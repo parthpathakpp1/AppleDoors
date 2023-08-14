@@ -1,4 +1,22 @@
+.payment-confirmation {
+  text-align: center;
+  margin-top: 50px;
+}
 
+.payment-confirmation h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.payment-confirmation p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.login-to-checkout{
+  color: red;
+}
 .cart-summary-section {
     display: flex;
     color: #333;
@@ -71,4 +89,45 @@
 .cart-page{
   color: #333;
   font-family: 'Poppins', sans-serif;
+}
+
+/* Profile Heading */
+.profile-heading {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Profile Address */
+.profile-address {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Update Address Button */
+.btn-outline-warning {
+  color: #ffc107;
+  background-color: transparent;
+  border-color: #ffc107;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn-outline-warning:hover {
+  color: #fff;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+.order-placed-button {
+  background-color: green;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: not-allowed;
 }
