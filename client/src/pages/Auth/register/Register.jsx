@@ -11,17 +11,19 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
+  const [answer, setAnswer] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/v1/auth/register", {
+      const res = await axios.post("http://localhost:8080/api/v1/auth/register", {
         name,
         email,
         password,
         phone,
         address,
+        answer
       });
       if (res && res.data.success) {
         navigate("/login");
@@ -74,7 +76,7 @@ const Register = () => {
 
               <div className="authform_container">
                 <input
-                  type={passwordType}
+                  type="{passwordType}"
                   className="form-control"
                   name="password"
                   value={password}
@@ -113,6 +115,18 @@ const Register = () => {
                   onChange={(e) => setPhone(e.target.value)}
                   required
                   placeholder="Phone Number"
+                />
+              </div>
+
+              <div className="authform_container">
+                <input
+                  type="text"
+                  className="form-control"
+                  name="phone"
+                  value={answer}
+                  onChange={(e) => setAnswer(e.target.value)}
+                  required
+                  placeholder="What is your favourite sport"
                 />
               </div>
 
