@@ -21,12 +21,34 @@
   }
   
   .authpage_leftdiv {
+    flex-grow: 1;
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     border-radius: 15px;
+    background-image: url('https://milanhub.org/assets/authbannerimg-90821bd2.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .authpage_floatingbtn{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1;
+    background-color: #000;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 15px!important;
+    font-family: Poppins,sans-serif;
+    width: 250px;
+  }
+
+  .authpage_goback{
+    width: 175px;
   }
   
   .authpage_leftdiv > img {
@@ -51,6 +73,9 @@
     margin-top: 20px;
   }
   
+  .authform_container > input{
+    font-size: 1.1rem;
+  }
   .auth_namediv > .authform_container,
   .auth_passworddiv > .authform_container {
     margin-top: 10px;
@@ -60,7 +85,32 @@
     font-family: "Poppins", sans-serif;
     margin-bottom: 5px;
     font-size: 1rem;
+    display: inline-block;
   }
+
+  .form-control{
+    margin-bottom: 1rem;
+  }
+  
+  .form-control {
+      display: block;
+      width: 100%;
+      padding: 0.375rem 0.75rem;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.5;
+      color: #212529;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid #ced4da;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border-radius: 0.375rem;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      margin-bottom: 1rem;
+  }
+  
   
   .authform_container > input,
   .authform_container > textarea {
@@ -172,5 +222,35 @@
     }
   }
   
-  /* Add more media queries and styles as needed */
+  .toggle-button {
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    float: right;
+    margin-top: -2.9rem;
+    margin-right: 0.9rem;
+    color: var(--primary); /* Set the color for the button */
+    font-weight: bold; /* Make the text bold */
+    transition: color 0.3s; /* Add transition effect for color change */
+  }
   
+  .toggle-button:hover {
+    color: #ff3c78; /* Change color on hover */
+  }
+  
+  .forgot-password-btn {
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+    margin-top: 10px;
+    transition: color 0.3s;
+    margin-left: 15px;
+  }
+  
+  .forgot-password-btn:hover {
+    color: #ff3c78;
+  }

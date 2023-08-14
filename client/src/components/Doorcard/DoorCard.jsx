@@ -54,7 +54,7 @@
           />
           <div className="door-content">
             <h3>{doorName}</h3>
-            <p className='door-price'>${price}</p>
+            <p className='door-price'>₹{price}</p>
             <div className="button-container">
               <Link to={`/customization/${encodeURIComponent(doorName)}`}>
                 <motion.button className="btn-customize">Customize</motion.button>
