@@ -31,29 +31,73 @@
         pointer-events: none;
     }
 
-    .front {
+
+
+
+
+
+/**
+ * CSS models for doors
+ * add your all models css below as shown with same name convenction
+ * means classname for door 3 would be .front-door-3, .side-door-3 etc. 
+ * only add front, side and back classes 
+ */
+
+
+    /* door-1 model css */
+    .front-door-1 {
         width: 27.0625em;
         height: 40.5em;
         background: url(/Door1.png) center/cover no-repeat;
         transform: translate3d(0, 0, 2.1875em);
     }
     
-    /* .side {
+    .side-door-1 {
       width: 4.375em;
       transform: rotateY(-90deg) translate3d(0,0,2.1875em);
-      background: url('/bar1.jpg');
+      background: url(/bar1.jpg);
   }
-  */
     
-    .back {
+    .back-door-1 {
         width: 27.0625em;
         height: 40.5em;
         background: url(/Door1back.png) center/cover no-repeat;
         transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
     }
     
+
+
+
+
+    /* door-2 model css */
+    .front-door-2 {
+      width: 27.0625em;
+      height: 40.5em;
+      background: url(/Door1.png) center/cover no-repeat;
+      transform: translate3d(0, 0, 2.1875em);
+  }
+  
+  .side-door-2 {
+    width: 4.375em;
+    transform: rotateY(-90deg) translate3d(0,0,2.1875em);
+    background: url(/bar1.jpg);
+}
+
+  .back-door-2 {
+      width: 27.0625em;
+      height: 40.5em;
+      /* background: url(/Door1back.png) center/cover no-repeat; */
+      transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
+  }  
+
+
+
+
+  /* door model css ends */
     
-    
+
+
+
     
 
 .customization-page {
