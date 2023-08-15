@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import authRoutes from './routes/authRoute.js';
+import paymentRoute from './routes/payment.js'
 import cors from "cors"
 // import path from "path"
 // import { fileURLToPath } from 'url';
@@ -27,11 +28,16 @@ app.use("/api/v1/auth", authRoutes);
 //     res.sendFile(path.join(__dirname, './client/build/index.html'));
 // });
 
-
-
 app.get('/', (req, res) => {
     res.send("<h1>WELCOME OTO ECOMMERCE APP 2023</h1>")
 });
+
+
+/**
+ * paymentn route
+ */
+
+app.use("/payment",paymentRoute)
 
 const PORT = process.env.PORT;
 

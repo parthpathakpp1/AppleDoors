@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/parthpathakpp1/AppleDoors#readme",
   "dependencies": {
+    "@cashfreepayments/cashfree-sdk": "^0.1.7",
     "bcrypt": "^5.1.0",
     "braintree": "^3.16.0",
     "cors": "^2.8.5",
