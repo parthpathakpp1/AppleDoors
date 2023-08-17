@@ -16,10 +16,26 @@ const Register = () => {
   const [address, setAddress] = useState("");
   const [answer, setAnswer] = useState("");
   const navigate = useNavigate();
+  const [passwordError, setPasswordError] = useState("");
+
+  const validatePassword = (password) => {
+    const passwordPattern = /^(?=.*\d).{8,}$/;
+
+    if (!passwordPattern.test(password)) {
+      setPasswordError("Password must be at least 8 characters long and contain at least 1 digit.");
+      return false;
+    } else {
+      setPasswordError("");
+      return true;
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      if (!validatePassword(password)) {
+        return;
+      }
       const res = await axios.post("http://localhost:8080/api/v1/auth/register", {
         name,
         email,
@@ -83,14 +99,18 @@ const Register = () => {
 
               <div className="authform_container">
               <input
-  type={passwordType} 
-  className="form-control"
-  name="password"
-  value={password}
-  onChange={(e) => setPassword(e.target.value)}
-  required
-  placeholder="Password"
-/>
+          type={passwordType}
+          className={`form-control ${passwordError ? "invalid" : ""}`}
+          name="password"
+          value={password}
+          onChange={(e) => {
+            setPassword(e.target.value);
+            validatePassword(e.target.value);
+          }}
+          required
+          placeholder="Password"
+        />
+           {passwordError && <div className="error-message">{passwordError}</div>}
 
 <button
   type="button"

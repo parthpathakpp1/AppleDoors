@@ -41,14 +41,8 @@ const App = () => {
           <h1>Apple <span>Doors</span></h1> 
           <FilterSection />
           <div className="door-cards-container">
-          {productData.map((product) => (
-  <DoorCard
-    key={product.imageUrl}
-    imageUrl={product.imageUrl}
-    doorName={product.doorName}
-    price={product.price} // Pass the price property
-  />
-))}
+       <DoorCard />
+
         </div>
           <WhyChooseUs />
           <Contact />

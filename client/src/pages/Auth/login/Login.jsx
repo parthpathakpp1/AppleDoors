@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../authStyle.css"; 
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import LandingFooter from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
 import { useAuth } from "../../../context/auth";
@@ -14,6 +14,7 @@ const Login = () => {
     const [auth,setAuth]=useAuth();
     
     const navigate = useNavigate();
+    const location=useLocation();
     
     
     const [isLoading, setIsLoading] = useState(false);
@@ -33,8 +34,9 @@ const Login = () => {
                 user:res.data.user,
                 token:res.data.token
               });
+              console.log(auth.token);
               localStorage.setItem('auth',JSON.stringify(res.data));
-                navigate("/");
+                navigate(location.state || "/");
                 toast.success("Logged in");
             } else {
               toast.error("Something went wrong");
