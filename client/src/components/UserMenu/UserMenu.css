@@ -1,0 +1,44 @@
+.user-dashboard-menu {
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.dashboard-menu h4 {
+  margin: 0 0 10px 0;
+  color: #555;
+}
+
+.dashboard-menu-heading {
+  font-size: 1.7rem;
+}
+
+.user-list-group-item {
+  border: none;
+  color: #333;
+  font-weight: bold;
+  padding: 10px 0;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.user-list-group-item:hover {
+  background-color: #ddd;
+  color: #555;
+}
+
+.user-active-link {
+  background-color: #ddd;
+  color: #555;
+  border-left: 4px solid #21867a;
+  padding-left: 16px;
+}
+
+/* Horizontal menu layout */
+.user-list-group-item {
+  display: block;
+  width: 100%;
+}

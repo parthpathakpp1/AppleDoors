@@ -9,6 +9,10 @@ const Customization = () => {
   
   const { doorName} = useParams();
 
+  const frontClass = `front-${doorName}`;
+const backClass = `back-${doorName}`;
+
+
   const [rotation, setRotation] = useState(0);
 
   useEffect(() => {
@@ -109,9 +113,9 @@ const Customization = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.8 }}
           >
-            <div className="front"></div>
-            <div className="side"></div>
-            <div className="back"></div>
+            <div className={frontClass}></div>
+<div className="side"></div>
+<div className={backClass}></div>
             <div className="pages"></div>
             <div className="shadow"></div>
           </motion.div>

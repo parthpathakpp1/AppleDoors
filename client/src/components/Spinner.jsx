@@ -17,7 +17,6 @@ const Spinner = ({ path = "login" }) => {
             });
         return () => clearInterval(interval);
     }, [count, navigate, location, path]);
-
     return (
         <div className="spinner-container">
             <h1 className="centered-text">Redirecting to you in {count} second</h1>

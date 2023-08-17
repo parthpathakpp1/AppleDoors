@@ -1,0 +1,22 @@
+/* CategoryForm.css */
+.category-form {
+    margin-bottom: 20px;
+  }
+  
+  .category-input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 200%;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  
+  .category-submit-btn {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  

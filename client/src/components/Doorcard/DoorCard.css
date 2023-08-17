@@ -1,46 +1,130 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-.Doorcard-container {
-  display: inline-block;
-  margin: 10px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=REM:wght@600&display=swap');
+.door-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
 }
 
 .door-card {
+  background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 270px;
-  height: 500px; /* Adjusted the height for better spacing */
-  padding: 15px;
-  position: relative;
-  transition: transform 0.3s ease; /* Added transition for smooth hover effect */
-}
-
-.door-card:hover {
-  transform: translateY(-5px); /* Lift the card on hover */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  text-align: center; /* Center content */
 }
 
 .door-image {
   width: 100%;
-  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.item-card {
+  margin-bottom: 20px;
+  padding: 12px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Center content */
+}
+
+.item-image {
+  width: 100%;
+  max-height: 150px;
   object-fit: cover;
   border-radius: 8px;
 }
 
-.door-content {
-  padding: 10px;
-  text-align: center;
+.item-details {
+  padding: 10px 0;
 }
 
-.door-content h3 {
-  margin: 0;
-  font-size: 16px;
+.item-title {
+  font-size: 18px;
   font-weight: bold;
+  margin-bottom: 4px;
+  text-align: center; /* Center text */
+}
+
+.item-description {
+  font-size: 14px;
+  color: #555555;
+  text-align: center; /* Center text */
+}
+
+/* Products.css */
+.dashboard {
+  display: flex;
+}
+
+.col-md-3 {
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+}
+
+.col-md-9 {
+  flex: 0 0 75%;
+  max-width: 75%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.allproducts-heading{
+  font-size: 2rem;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.item-link {
+  text-decoration: none;
   color: #333;
 }
 
-.door-price {
-  margin-top: 8px;
+.item-card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+  width: calc(33.33% - 20px); /* 3 cards per row */
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.item-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.item-img {
+  width: 50%;
+  max-height: 240px; /* Increased image height */
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.item-details {
+  padding-top: 10px;
+}
+
+.item-title {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.item-description {
   font-size: 14px;
   color: #555;
 }
@@ -50,29 +134,34 @@
   margin-top: 15px;
 }
 
+.btn-add-to-cart{
+  padding: 10px 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: black;
+    transition: transform 0.3s;
+}
+
 .btn-customize,
-.btn-add-to-cart {
-  padding: 8px 12px;
+.btn-cart {
+  padding: 10px 16px;
+  margin-right: 10px; /* Add a gap between the buttons */
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
   font-family: 'Montserrat', sans-serif;
   color: white;
-  transition: background-color 0.3s;
-}
-
-.btn-customize {
-  background-color: black;
-  margin-right: 12px;
-}
-
-.btn-add-to-cart {
-  margin-top: 10px;
-  background-color: black;
+  background-color: black; /* Set background color to black */
+  transition: transform 0.3s; /* Apply transform animation on hover */
 }
 
 .btn-customize:hover,
-.btn-add-to-cart:hover {
-  background-color: #17252A;
+.btn-cart:hover {
+  transform: scale(1.05); /* Increase size on hover */
 }

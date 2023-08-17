@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import Header from '../../components/Header/Header'
 import LandingFooter from '../../components/Footer/Footer'
 import { useAuth } from '../../context/auth'
+import UserMenu from '../../components/UserMenu/UserMenu'
 import axios from 'axios'
 import { toast,ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -60,6 +61,7 @@ const Profile = () => {
     <Header />
     <ToastContainer />
     <div className="profile-container">
+        
         <form onSubmit={handleSubmit} className="profile-form">
        <h1 className="profile-heading">Update Profile</h1>
        <div className="profile-avatar">

@@ -31,32 +31,147 @@
         pointer-events: none;
     }
 
-    .front {
-        width: 27.0625em;
-        height: 40.5em;
-        background: url(/Door1.png) center/cover no-repeat;
-        transform: translate3d(0, 0, 2.1875em);
-    }
-    
-    /* .side {
-      width: 4.375em;
-      transform: rotateY(-90deg) translate3d(0,0,2.1875em);
-      background: url('/bar1.jpg');
+    .front-door-1 {
+      width: 27.0625em;
+      height: 40.5em;
+      background: url(/Door1.png) center/cover no-repeat;
+      transform: translate3d(0, 0, 2.1875em);
   }
-  */
     
-    .back {
-        width: 27.0625em;
-        height: 40.5em;
-        background: url(/Door1back.png) center/cover no-repeat;
-        transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
-    }
-    
-    
-    
-    
+  .back-door-1 {
+    width: 27.0625em;
+    height: 40.5em;
+    background: url(/Door1back.png) center/cover no-repeat;
+    transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
+}
+  
+.front-door-2 {
+  width: 27.0625em;
+  height: 40.5em;
+  background: url(/Door2.png) center/cover no-repeat;
+  transform: translate3d(0, 0, 2.1875em);
+}
 
-.customization-page {
+.back-door-2 {
+  width: 27.0625em;
+  height: 40.5em;
+  background: url(/Door2back.png) center/cover no-repeat;
+  transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
+}  
+
+
+
+/* door-3 model css */
+.front-door-3 {
+  width: 27.0625em;
+  height: 40.5em;
+  background: url(/Door3.png) center/cover no-repeat;
+  transform: translate3d(0, 0, 2.1875em);
+}
+
+.back-door-3 {
+  width: 27.0625em;
+  height: 40.5em;
+  background: url(/Door3back.png) center/cover no-repeat;
+  transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
+}  
+
+
+
+
+
+  /* door-4 model css */
+  .front-door-4 {
+    width: 27.0625em;
+    height: 40.5em;
+    background: url(/Door4.png) center/cover no-repeat;
+    transform: translate3d(0, 0, 2.1875em);
+}
+
+.back-door-4 {
+    width: 27.0625em;
+    height: 40.5em;
+    background: url(/Door4back.png) center/cover no-repeat;
+    transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
+}  
+
+
+
+
+
+
+    /* door-5 model css */
+    .front-door-5 {
+      width: 27.0625em;
+      height: 40.5em;
+      background: url(/Door5.png) center/cover no-repeat;
+      transform: translate3d(0, 0, 2.1875em);
+  }
+
+  .back-door-5 {
+      width: 27.0625em;
+      height: 40.5em;
+      background: url(/Door5back.png) center/cover no-repeat;
+      transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
+  }  
+
+
+
+
+
+      /* door-6 model css */
+.front-door-6 {
+  width: 27.0625em;
+  height: 40.5em;
+  background: url(/Door6.png) center/cover no-repeat;
+  transform: translate3d(0, 0, 2.1875em);
+}
+
+.back-door-6 {
+  width: 27.0625em;
+  height: 40.5em;
+  background: url(/Door6back.png) center/cover no-repeat;
+  transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
+}  
+
+
+
+
+
+  /* door-7 model css */
+  .front-door-7 {
+    width: 27.0625em;
+    height: 40.5em;
+    background: url(/Door7.png) center/cover no-repeat;
+    transform: translate3d(0, 0, 2.1875em);
+}
+
+.back-door-7 {
+    width: 27.0625em;
+    height: 40.5em;
+    background: url(/Door7back.png) center/cover no-repeat;
+    transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
+}  
+
+
+
+
+    /* door-8 model css */
+    .front-door-8 {
+      width: 27.0625em;
+      height: 40.5em;
+      background: url(/Door8.png) center/cover no-repeat;
+      transform: translate3d(0, 0, 2.1875em);
+  }
+
+  .back-door-8 {
+      width: 27.0625em;
+      height: 40.5em;
+      background: url(/Door8back.png) center/cover no-repeat;
+      transform: rotateY(180deg) translate3d(0, 0, 2.1875em); 
+  }
+    
+      .customization-page {
     display: flex;
     flex-direction: column;
     align-items: center;

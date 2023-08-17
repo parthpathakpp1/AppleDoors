@@ -1,13 +1,29 @@
-  import React from 'react';
+  import React,{useState,useEffect} from 'react';
   import './DoorCard.css';
   import { motion } from 'framer-motion';
   import { Link } from 'react-router-dom';
   import { useCart } from '../../context/cart';
   import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
+  import axios from 'axios';
 
   const DoorCard = ({ imageUrl, doorName,price }) => {
     const [cart, setCart] = useCart();
+    const [products,setProducts] = useState([]);
+    const [categories,setCategories] = useState([]);
+
+    const getAllProducts = async () => {
+      try{
+        const{data} = await axios.get('http://localhost:8080/api/v1/product/get-product');
+        setProducts(data.products);
+      }catch(error){
+        console.log(error);
+      }
+    }
+
+    useEffect(() => {
+      getAllProducts();
+    },[]);
 
     const isInCart = cart.some(item => item.doorName === doorName); 
     const cardVariants = {
@@ -53,21 +69,43 @@
             className="door-image"
           />
           <div className="door-content">
-            <h3>{doorName}</h3>
-            <p className='door-price'>₹{price}</p>
-            <div className="button-container">
+          {products?.map((p) => (
+                <div className='item-card'>
+                  <img
+                    src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+                    className='item-img'
+                    alt={p.name}
+                  />
+                  <div className='item-details'>
+                    <h5 className='item-title'>{p.name}</h5>
+                    <p className='item-description'>{p.description}</p>
+                    <strong>₹{p.price}</strong>
+                    <div className="button-container">
               <Link to={`/customization/${encodeURIComponent(doorName)}`}>
                 <motion.button className="btn-customize">Customize</motion.button>
               </Link>
               <motion.button
                 className="btn-add-to-cart"
-                onClick={handleCartAction} 
+                onClick={() => {
+                                                setCart([...cart, p]);
+                                                localStorage.setItem(
+                                                    "cart",
+                                                    JSON.stringify([...cart, p])
+                                                );
+                                                toast.success("Item Added to cart");
+                                            }}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+               
               >
-                {isInCart ? 'Remove' : 'Add to Cart'}
+                 Add to Cart
               </motion.button>
             </div>
+                  </div>
+                </div>
+              
+            ))}
+           
           </div>
         </div>
       </motion.div>
