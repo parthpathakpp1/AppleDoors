@@ -21,6 +21,8 @@ import Users from './pages/Admin/Users';
 import Orders from './pages/user/Orders';
 import UpdateProduct from './pages/Admin/UpdateProduct';
 import AdminOrders from './pages/Admin/AdminOrders';
+import Categories from './pages/Categories';
+import CategoryProduct from './pages/CategoryProduct';
 
 
 
@@ -33,11 +35,17 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/category/:slug" element={<CategoryProduct />} />
+
+       
         <Route path='/dashboard' element={<PrivateRoute />}>
         <Route path="user" element={<Dashboard />} />
+         <Route path="user" element={<Dashboard />} />
         <Route path="user/orders" element={<Orders />} />
         <Route path="user/profile" element={<Profile />} />
         </Route>
+        
         <Route path='/dashboard' element={<AdminRoute />}>
         <Route path="admin" element={<AdminDashboard />} />
         <Route path="admin/create-category" element={<CreateCategory />} />
@@ -47,6 +55,7 @@ const Router = () => {
         <Route path="admin/orders" element={<AdminOrders/>} />
         <Route path="admin/products" element={<Products/>} />
         </Route>
+        
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/login" element={<Login />} />

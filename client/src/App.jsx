@@ -39,7 +39,6 @@ const App = () => {
          <ExtraContent />
           <ExtraContent2 />
           <h1>Apple <span>Doors</span></h1> 
-          <FilterSection />
           <div className="door-cards-container">
        <DoorCard />
 
