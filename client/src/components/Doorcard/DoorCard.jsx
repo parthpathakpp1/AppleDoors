@@ -6,6 +6,7 @@
   import { toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
   import axios from 'axios';
+import FilterSection from '../FilterSection/FilterSection';
 
   const DoorCard = ({ imageUrl, doorName,price }) => {
     const [cart, setCart] = useCart();
@@ -55,6 +56,8 @@
     
 
     return (
+     <>
+     <FilterSection />
       <motion.div
         className='Doorcard-container'
         variants={cardVariants}
@@ -81,7 +84,7 @@
                     <p className='item-description'>{p.description}</p>
                     <strong>₹{p.price}</strong>
                     <div className="button-container">
-              <Link to={`/customization/${encodeURIComponent(doorName)}`}>
+              <Link to={`/customization/${encodeURIComponent(p.name)}`}>
                 <motion.button className="btn-customize">Customize</motion.button>
               </Link>
               <motion.button
@@ -109,6 +112,7 @@
           </div>
         </div>
       </motion.div>
+      </>
     );
   };
 

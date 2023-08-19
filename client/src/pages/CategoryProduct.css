@@ -1,0 +1,77 @@
+/* CategoryProduct.css */
+.category {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .category h4 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin: 20px 0;
+  }
+  
+  .category h6 {
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #777;
+  }
+  
+  .d-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: calc(33.33% - 20px);
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  .card-img-top {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .card-name-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  
+  .card-title {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+  
+  .card-price {
+    font-size: 1rem;
+    color: #007bff;
+  }
+  
+  .card-text {
+    font-size: 0.9rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .btn-info {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .btn-info:hover {
+    background-color: #138496;
+  }
+  

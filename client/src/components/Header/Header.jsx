@@ -7,14 +7,17 @@ import OutsideClickHandler from 'react-outside-click-handler';
 import { useCart } from '../../context/cart';
 import { Badge } from 'antd';
 import { useAuth } from '../../context/auth';
+import useCategory from '../../hooks/useCategory';
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const [dropdownOpened, setDropdownOpened] = useState(false);
   const [userMenuOpened, setUserMenuOpened] = useState(false);
+  const [categoryMenuOpened, setCategoryMenuOpened] = useState(false);
   const [cart] = useCart();
   const [auth, setAuth] = useAuth();
   const location = useLocation();
+  const categories = useCategory();
 
   const handleLogout = () => {
     setAuth({
@@ -24,6 +27,11 @@ const Header = () => {
     });
     localStorage.removeItem('auth');
   };
+
+  const handleCategoryMenuToggle = () => {
+    setCategoryMenuOpened((prev) => !prev);
+  };
+
 
   const handleDropdownToggle = () => {
     setDropdownOpened((prev) => !prev);
@@ -101,6 +109,29 @@ const Header = () => {
                   Profile
                 </motion.a>
               </Link>
+
+              <div className={`dropdown ${categoryMenuOpened ? 'open' : ''}`}>
+              <Link to={"/categories"}>
+            <span className='dropdown-toggle' onClick={handleCategoryMenuToggle}>
+              Categories {categoryMenuOpened ? <BiChevronUp /> : <BiChevronDown />}
+            </span>
+            </Link>
+            <div className='dropdown-menu category-link'>
+            <li>
+            <Link className='dropdown-item' to={"/categories"}>
+                   All Categories
+                  </Link>   
+               
+            </li>
+              {categories?.map((c) => (
+                <li key={c.slug}>
+                  <Link className='dropdown-item' to={`/category/${c.slug}`}>
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+            </div>
+          </div>
 
               {/* User dropdown */}
               {auth.user ? (

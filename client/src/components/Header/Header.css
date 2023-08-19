@@ -109,6 +109,19 @@
   color: white;
 }
 
+.category-link {
+  padding-top: 1rem; /* Add some padding to the top of the category links */
+}
+
+.category-link .dropdown-item {
+  padding: 3rem 3rem; /* Increase padding for more spacing between category items */
+}
+
+/* Add more spacing between category items */
+.category-link .dropdown-item + .dropdown-item {
+  margin-top: 2rem; /* Add margin between items */
+}
+
 .h-menu a::after {
   content: "";
   position: absolute;

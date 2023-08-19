@@ -8,6 +8,7 @@ import Header from '../components/Header/Header'
 import axios from "axios";
 import toast from "react-hot-toast";
 import LandingFooter from '../components/Footer/Footer'
+import './CartPage.css'
 
 
 const CartPage = () => {
@@ -27,7 +28,7 @@ const CartPage = () => {
             });
             return total.toLocaleString("en-US", {
                 style: "currency",
-                currency: "USD",
+                currency: "INR",
             });
         } catch (error) {
             console.log(error);
@@ -103,7 +104,7 @@ const CartPage = () => {
                                 <div className="row card flex-row" key={p._id}>
                                     <div className="col-md-4">
                                         <img
-                                            src={`/api/v1/product/product-photo/${p._id}`}
+                                            src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
                                             className="card-img-top"
                                             alt={p.name}
                                             width="100%"
@@ -112,7 +113,7 @@ const CartPage = () => {
                                     </div>
                                     <div className="col-md-4">
                                         <p>{p.name}</p>
-                                        <p>{p.description.substring(0, 30)}</p>
+                                        <p>{p.description}</p>
                                         <p>Price : {p.price}</p>
                                     </div>
                                     <div className="col-md-4 cart-remove-btn">

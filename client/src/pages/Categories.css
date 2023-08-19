@@ -1,0 +1,47 @@
+/* Categories.css */
+.header {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    background-color: var(--black);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 2.5rem 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  /* Category Links */
+  .category-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 100px;
+  }
+  
+  .category-item {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    background-color: white;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .category-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .cat-btn {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+  }
+  

@@ -6,6 +6,7 @@ import DropIn from "braintree-web-drop-in-react";
 import { AiFillWarning } from "react-icons/ai";
 import toast from "react-hot-toast";
 import axios from "axios";
+import './CartItemList.css'
 
 import './CartItemList.css';
 
