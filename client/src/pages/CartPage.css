@@ -1,127 +1,136 @@
+/* CartPage.css */
 
-.login-to-checkout{
-  color: red;
+/* Cart Page Container */
+.cart-page {
+  padding: 20px;
 }
-.cart-summary-section {
-  display: flex;
-  justify-content: space-between; /* This will space the columns apart */
+
+/* Cart Content */
+.cart-content {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cart-heading {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
   color: #333;
 }
-  
-  .cart-items {
-    flex: 1;
-    padding-right: 20px; /* Add spacing between cart items and cart summary */
-  }
-  
-  .cart-summary {
-    flex: 1; /* Will take up remaining space */
-    background-color: #f8f8f8;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    line-height: 3rem;
-  } line-height: 3rem;
-  
-  
-  .cart-summary-section {
-    display: flex;
-    justify-content: space-between; /* This will space the columns apart */
-    color: #333;
-  }
-  .cart-summary h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .cart-summary p {
-    font-weight: bold;
-  }
-  
-  .cart-summary hr {
-    margin: 10px 0;
-  }
-  
-  .cart-summary h4 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  
-  }
-  
-  .checkout-button {
-    background-color: var(--primary);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1.4rem;
-    transition: background-color 0.3s;
-  }
-  
-  .checkout-button:hover {
-    background-color: #ee1e5d;
-  }
-  
+
 .cart-item-count {
-    font-size: 1.5rem;
-    text-align: center;
-    
-  }
+  font-size: 1.2rem;
+  color: #777;
+}
 
-  .cart-heading-content{
-    text-align: center;
-    margin-bottom: 50px;
-  }
+/* Cart Cards and Summary */
+.cart-container {
+  display: flex;
+  justify-content: space-between;
+}
 
-  .cart-heading{
-    font-size: 2.5rem;
-    text-align: center;
+.cart-row {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
 
-  }
+/* Cart Card */
+.cart-card-row {
+  display: flex;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+}
 
-.cart-page{
+.cart-card-img-top {
+  max-width: 100px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.cart-card-content {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.cart-card-content p {
+  margin-bottom: 5px;
+  font-size: 1rem;
   color: #333;
-  font-family: 'Poppins', sans-serif;
 }
 
-/* Profile Heading */
-.profile-heading {
+.cart-remove-btn {
+  display: flex;
+  align-items: center;
+}
+
+/* Cart Summary */
+.cart-summary {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.cart-summary h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.cart-summary p {
+  font-size: 1.2rem;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.cart-summary hr {
+  margin-bottom: 15px;
+}
+
+.cart-summary h4 {
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  color: var(--primary);
+  margin-bottom: 10px;
 }
 
-/* Profile Address */
-.profile-address {
+.cart-summary-content {
+  margin-top: 10px;
+}
+
+.cart-summary-content h4 {
   font-size: 1.2rem;
   color: #333;
-  margin-bottom: 1rem;
+  margin-bottom: 5px;
 }
 
-/* Update Address Button */
-.btn-outline-warning {
-  color: white;
-  background-color: #ff3c78;
-  border-color: #ff3c78;
-  padding: 0.5rem 1rem;
+.cart-summary-content h5 {
   font-size: 1rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  color: #555;
+  margin-bottom: 10px;
 }
 
-.btn-outline-warning:hover {
-  color: #fff;
-  background-color: #d3154e;
-  border-color: #d3154e;
-}
-
-.order-placed-button {
-  background-color: green;
+.cart-summary-content button {
+  background-color: var(--primary);
   color: white;
-  padding: 10px 20px;
   border: none;
+  padding: 5px 15px;
+  cursor: pointer;
   border-radius: 5px;
-  font-size: 1rem;
-  cursor: not-allowed;
+  transition: background-color 0.2s ease-in-out;
 }
+
+.cart-summary-content button:hover {
+  background-color: #d1174f;
+}
+
+.cart-summary button.btn-primary {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+/* ... (rest of the styles) */

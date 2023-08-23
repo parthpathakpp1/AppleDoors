@@ -1,29 +1,28 @@
     .door-showcase{
-        background: linear-gradient(90deg, #fff, #eee);
-        min-height: 80vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 12px;
-        position: relative;
+      background: linear-gradient(90deg, #fff, #eee);
+      min-height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 8px;
+      position: relative;
     }
 
-
-    .wrapper {
-        perspective: 1000px;
-    }
+  .wrapper {
+    perspective: 1000px;
+}
 
     .door {
-        transform-style: preserve-3d;
-        width: 27.0625em;
-        height: 40.5em;
-        transform-origin: 13.53125em 4.375em;
-        position: relative;
+      transform-style: preserve-3d;
+      width: 50.0625em;
+      height: 40.5em;
+      transform-origin: 13.53125em 4.375em;
+      position: relative;
     }
 
     .door > div {
-        position: absolute;
-        height: 40.5em;
+      position: absolute;
+      height: 40.5em;
     }
 
     .front, .back, .side {
@@ -31,46 +30,97 @@
         pointer-events: none;
     }
 
-    .front-door-1 {
-      width: 27.0625em;
+    .front-Door-1{
+      width: 33.0625em;
       height: 40.5em;
-      background: url(/Door1.png) center/cover no-repeat;
+      background: url(/Door4.png) center/cover no-repeat;
       transform: translate3d(0, 0, 2.1875em);
   }
     
-  .back-door-1 {
+  .side-Door-1 {
+    width: 4.375em;
+  transform: rotateY(-90deg) translate3d(0,0,2.1875em);
+  background: #000;
+  margin-left: 47px;
+  }
+
+  .page-Door-1 {
+    width: 4.375em;
+    background: #ccc;
+    transform: rotateY(90deg) translate3d(0,0,24.9em);
+    transform-origin: bottom;
+  }
+  
+  .door .shadow {
     width: 27.0625em;
+    height: 4.375em;
+    background: radial-gradient(rgba(0,0,0,0.4), transparent);
+    transform: rotateX(90deg) translate3d(0,2.1875em, -38em);
+    transform-origin: bottom;
+    margin-left: 25px;
+}
+  
+  .back-Door-1 {
+    width: 33.0625em;
     height: 40.5em;
-    background: url(/Door1back.png) center/cover no-repeat;
+    background: url(/Door4back.png) center/cover no-repeat;
     transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
 }
   
-.front-door-2 {
-  width: 27.0625em;
+.front-Door-2 {
+  width: 33.0625em;
   height: 40.5em;
-  background: url(/Door2.png) center/cover no-repeat;
+  background: url(/Door1.png) center/cover no-repeat;
   transform: translate3d(0, 0, 2.1875em);
 }
 
-.back-door-2 {
-  width: 27.0625em;
-  height: 40.5em;
-  background: url(/Door2back.png) center/cover no-repeat;
-  transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
+.side-Door-2 {
+  width: 4.375em;
+  transform: rotateY(-90deg) translate3d(0,0,2.1875em);
+  background: #000;
+  margin-left: 47px;
+}
+
+.page-Door-2 {
+  width: 4.375em;
+  background: #ccc;
+  transform: rotateY(90deg) translate3d(0,0,24.9em);
+  transform-origin: bottom;
+}
+
+.back-Door-2{
+    width: 33.0625em;
+    height: 40.5em;
+    background: url(/Door1back.png) center/cover no-repeat;
+    transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
 }  
 
 
 
 /* door-3 model css */
-.front-door-3 {
-  width: 27.0625em;
+.front-Door-3{
+  width: 33.0625em;
   height: 40.5em;
   background: url(/Door3.png) center/cover no-repeat;
   transform: translate3d(0, 0, 2.1875em);
 }
 
-.back-door-3 {
-  width: 27.0625em;
+.side-Door-3 {
+  width: 4.375em;
+  transform: rotateY(-90deg) translate3d(0,0,2.1875em);
+  background: #000;
+  margin-left: 47px;
+}
+
+.page-Door-3 {
+  width: 4.375em;
+  background: #ccc;
+  transform: rotateY(90deg) translate3d(0,0,24.9em);
+  transform-origin: bottom;
+}
+
+.back-Door-3{
+  width: 33.0625em;
   height: 40.5em;
   background: url(/Door3back.png) center/cover no-repeat;
   transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
@@ -81,15 +131,29 @@
 
 
   /* door-4 model css */
-  .front-door-4 {
-    width: 27.0625em;
+  .front-Black-Gradient-Door {
+    width: 33.0625em;
     height: 40.5em;
     background: url(/Door4.png) center/cover no-repeat;
     transform: translate3d(0, 0, 2.1875em);
 }
 
-.back-door-4 {
-    width: 27.0625em;
+.side-Black-Gradient-Door {
+  width: 4.375em;
+  transform: rotateY(-90deg) translate3d(0,0,2.1875em);
+  background: #000;
+  margin-left: 47px;
+}
+
+.page-Black-Gradient-Door {
+  width: 4.375em;
+  background: #ccc;
+  transform: rotateY(90deg) translate3d(0,0,24.9em);
+  transform-origin: bottom;
+}
+
+.back-Black-Gradient-Door{
+    width: 33.0625em;
     height: 40.5em;
     background: url(/Door4back.png) center/cover no-repeat;
     transform: rotateY(180deg) translate3d(0, 0, 2.1875em);

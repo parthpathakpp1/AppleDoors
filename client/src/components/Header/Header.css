@@ -97,6 +97,25 @@
   font-size: 12px; 
 }
 
+.category-link{
+  text-decoration: none;
+  list-style: none;
+  padding: 20px 0 25px 10px;
+  transition: 0.3s ease, transform 0.3s ease;
+}
+
+.category-link li{
+  margin-top: 5px;
+}
+
+.category-link li:hover {
+  border-radius: 5px; 
+  transform: scale(1.05);
+
+}
+
+
+
 .logout-link{
   font-size: 12px;
   margin-bottom: 1.5rem;
@@ -109,17 +128,8 @@
   color: white;
 }
 
-.category-link {
-  padding-top: 1rem; /* Add some padding to the top of the category links */
-}
-
-.category-link .dropdown-item {
-  padding: 3rem 3rem; /* Increase padding for more spacing between category items */
-}
-
-/* Add more spacing between category items */
-.category-link .dropdown-item + .dropdown-item {
-  margin-top: 2rem; /* Add margin between items */
+.dropdown-item{
+  margin-top: 5rem;
 }
 
 .h-menu a::after {

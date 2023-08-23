@@ -10,7 +10,10 @@ const Categories = () => {
   return (
     <>
       <Header />
-      <div className="container category-list">
+      <div className='category-heading'>
+      <h1>Categories</h1>
+      </div>
+      <div className="category-list">
         {categories.map((c) => (
           <div className="category-item" key={c._id}>
             <a href={`/category/${c.slug}`} className="cat-btn">

@@ -1,0 +1,140 @@
+/* ProductDetails.css */
+
+/* Product Details Container */
+.product-details-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.product-details-image img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.product-details-info {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.product-details-title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product-details-name {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.product-details-description {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.product-details-price {
+  font-size: 1.6rem;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.product-details-category {
+  font-size: 1.3rem;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.product-details-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.product-details-btn:hover {
+  background-color: #d1174f;
+}
+
+/* Similar Products */
+.similar-products {
+  padding: 20px;
+}
+
+.similar-products-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.similar-products-text {
+  font-size: 1rem;
+  color: #777;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.similar-products-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.similar-products-card {
+  width: calc(30% - 10px); /* Adjusted width and spacing */
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.similar-products-card img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+
+.similar-products-card-body {
+  padding: 10px 20px;
+}
+
+.similar-products-card-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.similar-products-card-price {
+  font-size: 1rem;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.similar-products-card-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.similar-products-more-details-btn {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.similar-products-more-details-btn:hover {
+  background-color: #138496;
+}

@@ -23,6 +23,8 @@ import UpdateProduct from './pages/Admin/UpdateProduct';
 import AdminOrders from './pages/Admin/AdminOrders';
 import Categories from './pages/Categories';
 import CategoryProduct from './pages/CategoryProduct';
+import ProductDetails from './pages/ProductDetails';
+import DoorCard from './components/Doorcard/DoorCard';
 
 
 
@@ -35,6 +37,8 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/customization" element={<DoorCard />} />
+        <Route path="/product/:slug" element={<ProductDetails/>} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/category/:slug" element={<CategoryProduct />} />
 
