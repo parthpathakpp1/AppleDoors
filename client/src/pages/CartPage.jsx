@@ -19,21 +19,29 @@ const CartPage = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    //total price
-    const totalPrice = () => {
+    const updateCartItemQuantity = (pid, newQuantity) => {
         try {
-            let total = 0;
-            cart?.map((item) => {
-                total = total + item.price;
-            });
-            return total.toLocaleString("en-US", {
-                style: "currency",
-                currency: "INR",
-            });
+          let updatedCart = cart.map((item) =>
+            item._id === pid ? { ...item, quantity: newQuantity } : item
+          );
+          setCart(updatedCart);
+          localStorage.setItem("cart", JSON.stringify(updatedCart));
         } catch (error) {
-            console.log(error);
+          console.log(error);
         }
-    };
+      };
+
+    //total price
+    const calculateTotalPrice = () => {
+        let total = 0;
+        cart?.forEach((item) => {
+          total += item.price * item.quantity;
+        });
+        return total.toLocaleString("en-US", {
+          style: "currency",
+          currency: "INR",
+        });
+      };
     //detele item
     const removeCartItem = (pid) => {
         try {
@@ -79,11 +87,13 @@ const CartPage = () => {
             setLoading(false);
         }
     };
+
+    
     return (
         <>
        <Header />
      
-            <div className=" cart-page">
+            <div className="cart-page">
                 <div className="cart-content">
                     <div className="col-md-12">
                           <h2 className="cart-heading">
@@ -97,26 +107,42 @@ const CartPage = () => {
                        
                     </div>
                 </div>
-                <div className="container">
-                    <div className="row ">
-                        <div className="col-md-7  p-0 m-0">
+                <div className="cart-container">
+                    <div className="cart-row ">
+                        <div className="">
                             {cart?.map((p) => (
-                                <div className="row card flex-row" key={p._id}>
-                                    <div className="col-md-4">
+                                <div className="cart-card-row" key={p._id}>
+                                    <div className="cart-card-col">
                                         <img
                                             src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
-                                            className="card-img-top"
+                                            className="cart-card-img-top"
                                             alt={p.name}
                                             width="100%"
                                             height={"130px"}
                                         />
                                     </div>
-                                    <div className="col-md-4">
+                                    <div className="cart-card-content">
                                         <p>{p.name}</p>
                                         <p>{p.description}</p>
-                                        <p>Price : {p.price}</p>
+                                        <p>Price : ₹ {p.price}</p>
+                                        <div className="cart-quantity">
+                    <label htmlFor={`quantity-${p._id}`}>Quantity: </label>
+                    <select
+                      id={`quantity-${p._id}`}
+                      value={p.quantity}
+                      onChange={(e) =>
+                        updateCartItemQuantity(p._id, parseInt(e.target.value))
+                      }
+                    >
+                      {[...Array(10)].map((_, i) => (
+                        <option key={i} value={i + 1}>
+                          {i + 1}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                                     </div>
-                                    <div className="col-md-4 cart-remove-btn">
+                                    <div className="cart-remove-btn">
                                         <button
                                             className="btn btn-danger"
                                             onClick={() => removeCartItem(p._id)}
@@ -127,14 +153,14 @@ const CartPage = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className="col-md-5 cart-summary ">
+                        <div className="cart-summary ">
                             <h2>Cart Summary</h2>
                             <p>Total | Checkout | Payment</p>
                             <hr />
-                            <h4>Total : {totalPrice()} </h4>
+                            <h4>Total : {calculateTotalPrice()} </h4>
                             {auth?.user?.address ? (
                                 <>
-                                    <div className="mb-3">
+                                    <div className="cart-summary-content">
                                         <h4>Current Address</h4>
                                         <h5>{auth?.user?.address}</h5>
                                         <button

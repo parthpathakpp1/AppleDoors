@@ -77,7 +77,7 @@ const Header = () => {
           <Link to='/'>
             <motion.div
               className='logo'
-              initial={{ opacity: 0, y: -50 }}
+              initial={{ opacity: 0, y: -40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
@@ -137,7 +137,7 @@ const Header = () => {
               {auth.user ? (
                 <div className={`dropdown ${dropdownOpened ? 'open' : ''}`}>
                   <span className='dropdown-toggle' onClick={handleUserMenuToggle}>
-                    User {userMenuOpened ? <BiChevronUp /> : <BiChevronDown />}
+                  {auth?.user?.name} {userMenuOpened ? <BiChevronUp /> : <BiChevronDown />}
                   </span>
                   <div className='dropdown-menu dashboard-link'>
                     <Link to={`/dashboard/${auth?.user?.role === 1 ? 'admin' : 'user'}`}>Dashboard</Link>

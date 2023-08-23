@@ -30,14 +30,14 @@ const CategoryProduct = () => {
   return (
     <>
 <Header />
-      <div className="container mt-3 category">
+      <div className="container-pro mt-3 category">
         <h4 className="text-center">Category - {category?.name}</h4>
         <h6 className="text-center">{products?.length} result found </h6>
-        <div className="row">
-          <div className="col-md-15 offset-1">
-            <div className="d-flex flex-wrap">
+        <div className="category-cards-row">
+          <div className="cards-overall-container">
+            <div className="cards-container">
               {products?.map((p) => (
-                <div className="card m-2 category-card" key={p._id}>
+                <div className="category-card" key={p._id}>
                   <img
                     src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './ExtraContent2.css'
 const ExtraContent2 = () => {
   return (
@@ -54,7 +55,7 @@ const ExtraContent2 = () => {
         </ul>
         </div>
         <div className='button-wrap1'>
-               <button className='btn1'>Enquire Now</button>
+               <Link to={'/customization'}><button className='btn1'>Customize</button></Link> 
         </div>
      </div>
 

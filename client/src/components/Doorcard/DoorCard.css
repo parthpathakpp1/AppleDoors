@@ -9,28 +9,31 @@
 
 .door-card {
   background-color: #ffffff;
-  border-radius: 8px;
+  border-radius: 4px; /* Decrease border radius */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  text-align: center; /* Center content */
+  padding: 8px; /* Decrease padding */
+  text-align: center;
 }
+
+
+
+.door-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Add gap between item cards */
+}
+
 
 .door-image {
   width: 100%;
-  max-height: 200px;
+  max-height: 150px; /* Decrease max height */
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 4px; /* Decrease border radius */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.item-card {
-  margin-bottom: 20px;
-  padding: 12px;
-  background-color: #f7f7f7;
-  border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center; /* Center content */
-}
+
 
 .item-image {
   width: 100%;
@@ -61,20 +64,6 @@
   display: flex;
 }
 
-.col-md-3 {
-  flex: 0 0 25%;
-  max-width: 25%;
-  padding: 20px;
-  box-sizing: border-box;
-  background-color: #f0f0f0;
-}
-
-.col-md-9 {
-  flex: 0 0 75%;
-  max-width: 75%;
-  padding: 20px;
-  box-sizing: border-box;
-}
 
 .allproducts-heading{
   font-size: 2rem;
@@ -91,29 +80,27 @@ h1 {
 }
 
 .item-card {
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  margin: 10px;
-  padding: 10px;
-  width: calc(33.33% - 20px); /* 3 cards per row */
-  box-sizing: border-box;
-  display: inline-block;
-  vertical-align: top;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  flex-basis: calc(20% - 10px); 
+  max-width: calc(25% - 10px);
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #f7f7f7;
+  border-radius: 4px; /* Decrease border radius */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: box-shadow 0.3s ease, transform 0.3s;
 }
 
 .item-card:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+.item-img {
+  max-height: 200px; /* Decrease max height */
+  object-fit: cover;
+  border-radius: 4px; /* Decrease border radius */
 }
 
-.item-img {
-  width: 50%;
-  max-height: 240px; /* Increased image height */
-  object-fit: cover;
-  border-radius: 10px;
-}
 
 .item-details {
   padding-top: 10px;

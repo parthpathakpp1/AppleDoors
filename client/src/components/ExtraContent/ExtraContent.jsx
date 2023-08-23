@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './ExtraContent.css'
 const ExtraContent = () => {
   return (
@@ -32,7 +33,7 @@ const ExtraContent = () => {
                 </h2>
                 <p className='heading-in__subtitle'>Decide the style, mood and colours that would work together and help you create a place that evokes your style & personality</p>
                 <div className='button-wrap'>
-                  <button className='btn'>Enquire Now</button>
+                <Link to={'/customization'}><button className='btn'>Customize</button></Link>  
                 </div>
             </div>
          </div>

@@ -10,6 +10,8 @@ const Customization = () => {
 
   const frontClass = `front-${doorName}`;
   const backClass = `back-${doorName}`;
+  const sideClass=`side-${doorName}`;
+  const pageClass=`page-${doorName}`;
 
 
   const [rotation, setRotation] = useState(0);
@@ -59,7 +61,6 @@ const Customization = () => {
 
   return (
     <>
-      <Header />
 
       <div className="customization-page">
         <motion.h2
@@ -122,9 +123,9 @@ const Customization = () => {
             transition={{ duration: 0.5, delay: 0.8 }}
           >
             <div className={frontClass}></div>
-            <div className="side"></div>
+            <div className={sideClass}></div>
             <div className={backClass}></div>
-            <div className="pages"></div>
+            <div className={pageClass}></div>
             <div className="shadow"></div>
           </motion.div>
         </div>

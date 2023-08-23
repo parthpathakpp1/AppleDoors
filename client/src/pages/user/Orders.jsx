@@ -29,12 +29,12 @@ const Orders = () => {
   return (
     <>
     <Header />
-    <div className= "dashboard">
-                <div className="row">
-                    <div className="col-md-3">
+    <div className= "orders-dashboard">
+                <div className="orders-dashboard-row">
+                    <div className="orders-dashboard-col3">
                         <UserMenu />
                     </div>
-                    <div className="col-md-9">
+                    <div className="orders-dashboard-col9">
                         <h1 className="orders-title">All Orders</h1>
                         {orders?.map((o, i) => {
                             return (
@@ -63,8 +63,8 @@ const Orders = () => {
                                     </table>
                                     <div className="orders-container">
                                         {o?.products?.map((p, i) => (
-                                            <div className="orders-row mb-2 p-3 orders-card" key={p._id}>
-                                                <div className="orders-col-md-4">
+                                            <div className="orders-card" key={p._id}>
+                                                <div className="orders-card-content">
                                                     <img
                                                         src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
                                                         className="orders-card-img"
@@ -73,7 +73,7 @@ const Orders = () => {
                                                         height={"100px"}
                                                     />
                                                 </div>
-                                                <div className="orders-col-md-8">
+                                                <div className="orders-card-text">
                                                     <p>{p.name}</p>
                                                     <p>{p.description.substring(0, 30)}</p>
                                                     <p>Price : {p.price}</p>

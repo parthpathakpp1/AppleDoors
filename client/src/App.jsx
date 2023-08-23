@@ -38,12 +38,7 @@ const App = () => {
           <CarouselSection />
          <ExtraContent />
           <ExtraContent2 />
-          <h1>Apple <span>Doors</span></h1> 
-          <div className="door-cards-container">
-       <DoorCard />
-
-        </div>
-          <WhyChooseUs />
+           <WhyChooseUs />
           <Contact />
           <LandingFooter />
         </>
