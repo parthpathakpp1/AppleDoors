@@ -38,6 +38,7 @@ const App = () => {
           <CarouselSection />
          <ExtraContent />
           <ExtraContent2 />
+          <DoorCard />
            <WhyChooseUs />
           <Contact />
           <LandingFooter />

@@ -16,11 +16,13 @@ var gateway = new braintree.BraintreeGateway({
     privateKey: process.env.BRAINTREE_PRIVATE_KEY,
 });
 
+
+
 export const createProductController = async (req, res) => {
     try {
         const { name, description, price, category, quantity, shipping } =
             req.fields;
-        const { photo } = req.files;
+            const { photo, secondPhoto } = req.files; 
         //alidation
         switch (true) {
             case !name:
@@ -37,12 +39,20 @@ export const createProductController = async (req, res) => {
                 return res
                     .status(500)
                     .send({ error: "photo is Required and should be less then 1mb" });
+            case secondPhoto && secondPhoto.size > 1000000: // Add validation for secondPhoto
+                return res
+                    .status(500)
+                    .send({ error: "Second photo should be less than 1mb" });
         }
 
         const products = new productModel({ ...req.fields, slug: slugify(name) });
         if (photo) {
             products.photo.data = fs.readFileSync(photo.path);
             products.photo.contentType = photo.type;
+        }
+        if (secondPhoto) { // Handle secondPhoto
+            products.secondPhoto.data = fs.readFileSync(secondPhoto.path);
+            products.secondPhoto.contentType = secondPhoto.type;
         }
         await products.save();
         res.status(201).send({
@@ -66,7 +76,7 @@ export const getProductController = async (req, res) => {
         const products = await productModel
             .find({})
             .populate("category")
-            .select("-photo")
+            .select("-photo -secondPhoto")
             .limit(12)
             .sort({ createdAt: -1 });
         res.status(200).send({
@@ -89,7 +99,7 @@ export const getSingleProductController = async (req, res) => {
     try {
         const product = await productModel
             .findOne({ slug: req.params.slug })
-            .select("-photo")
+            .select("-photo -secondPhoto") // Exclude both photo and secondPhoto
             .populate("category");
         res.status(200).send({
             success: true,
@@ -100,34 +110,62 @@ export const getSingleProductController = async (req, res) => {
         console.log(error);
         res.status(500).send({
             success: false,
-            message: "Eror while getitng single product",
+            message: "Error while getting single product",
             error,
         });
     }
 };
 
+
 // get photo
 export const productPhotoController = async (req, res) => {
     try {
-        const product = await productModel.findById(req.params.pid).select("photo");
+        const product = await productModel.findById(req.params.pid).select("photo secondPhoto");
+
+        if (!product) {
+            return res.status(404).send({
+                success: false,
+                message: "Product not found",
+            });
+        }
+
         if (product.photo.data) {
             res.set("Content-type", product.photo.contentType);
             return res.status(200).send(product.photo.data);
+        } else if (product.secondPhoto.data) {
+            res.set("Content-type", product.secondPhoto.contentType);
+            return res.status(200).send(product.secondPhoto.data);
+        } else {
+            return res.status(404).send({
+                success: false,
+                message: "No photo found for this product",
+            });
         }
     } catch (error) {
         console.log(error);
         res.status(500).send({
             success: false,
-            message: "Erorr while getting photo",
+            message: "Error while getting photo",
             error,
         });
     }
 };
 
+
 //delete controller
 export const deleteProductController = async (req, res) => {
     try {
-        await productModel.findByIdAndDelete(req.params.pid).select("-photo");
+        const deletedProduct = await productModel
+            .findByIdAndDelete(req.params.pid)
+            .select("-photo -secondPhoto"); // Exclude both photo and secondPhoto
+
+        if (!deletedProduct) {
+            return res.status(404).send({
+                success: false,
+                message: "Product not found",
+            });
+        }
+
         res.status(200).send({
             success: true,
             message: "Product Deleted successfully",
@@ -142,13 +180,15 @@ export const deleteProductController = async (req, res) => {
     }
 };
 
+
 //upate producta
 export const updateProductController = async (req, res) => {
     try {
         const { name, description, price, category, quantity, shipping } =
             req.fields;
-        const { photo } = req.files;
-        //alidation
+        const { photo, secondPhoto } = req.files; // Add secondPhoto
+
+        // Validation
         switch (true) {
             case !name:
                 return res.status(500).send({ error: "Name is Required" });
@@ -163,17 +203,26 @@ export const updateProductController = async (req, res) => {
             case photo && photo.size > 1000000:
                 return res
                     .status(500)
-                    .send({ error: "photo is Required and should be less then 1mb" });
+                    .send({ error: "Photo should be less than 1mb" });
+            case secondPhoto && secondPhoto.size > 1000000:
+                return res
+                    .status(500)
+                    .send({ error: "Second photo should be less than 1mb" });
         }
 
+        const updatedFields = { ...req.fields, slug: slugify(name) };
         const products = await productModel.findByIdAndUpdate(
             req.params.pid,
-            { ...req.fields, slug: slugify(name) },
+            updatedFields,
             { new: true }
         );
         if (photo) {
             products.photo.data = fs.readFileSync(photo.path);
             products.photo.contentType = photo.type;
+        }
+        if (secondPhoto) {
+            products.secondPhoto.data = fs.readFileSync(secondPhoto.path);
+            products.secondPhoto.contentType = secondPhoto.type;
         }
         await products.save();
         res.status(201).send({
@@ -186,7 +235,7 @@ export const updateProductController = async (req, res) => {
         res.status(500).send({
             success: false,
             error,
-            message: "Error in Updte product",
+            message: "Error in updating product",
         });
     }
 };

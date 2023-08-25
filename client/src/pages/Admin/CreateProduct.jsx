@@ -20,6 +20,7 @@ const CreateProduct = () => {
   const [quantity, setQuantity] = useState("");
   const [shipping, setShipping] = useState("");
   const [photo, setPhoto] = useState("");
+  const [secondPhoto, setSecondPhoto] = useState("");
 
   //get all category
   const getAllCategory = async () => {
@@ -49,6 +50,7 @@ const CreateProduct = () => {
           productData.append("quantity", quantity);
           productData.append("photo", photo);
           productData.append("category", category);
+          productData.append("secondPhoto", secondPhoto);
           const { data } = axios.post(
               "http://localhost:8080/api/v1/product/create-product",
               productData
@@ -104,10 +106,30 @@ const CreateProduct = () => {
               />
             </label>
           </div>
+
+          <div className='mb-3'>
+            <label className='upload-label'>
+                {secondPhoto ? secondPhoto.name : 'Upload Second Photo'}
+                <input
+                    type='file'
+                    name='secondPhoto'
+                    accept='image/*'
+                    onChange={(e) => setSecondPhoto(e.target.files[0])}
+                    hidden
+                />
+            </label>
+        </div>
           <div className='mb-3 img-preview'>
             {photo && (
               <div className='text-center'>
                 <img src={URL.createObjectURL(photo)} alt='product_photo' className='product-img' />
+              </div>
+            )}
+          </div>
+          <div className='mb-3 img-preview'>
+            {secondPhoto && (
+              <div className='text-center'>
+                <img src={URL.createObjectURL(secondPhoto)} alt='product_photo' className='product-img' />
               </div>
             )}
           </div>

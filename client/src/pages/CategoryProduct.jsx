@@ -35,39 +35,39 @@ const CategoryProduct = () => {
         <h6 className="text-center">{products?.length} result found </h6>
         <div className="category-cards-row">
           <div className="cards-overall-container">
-            <div className="cards-container">
-              {products?.map((p) => (
-                <div className="category-card" key={p._id}>
-                  <img
-                    src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top"
-                    alt={p.name}
-                  />
-                  <div className="card-body">
-                    <div className="card-name-price">
-                      <h5 className="card-title">{p.name}</h5>
-                      <h5 className="card-title card-price">
-                        {p.price.toLocaleString("en-US", {
-                          style: "currency",
-                          currency: "INR",
-                        })}
-                      </h5>
-                    </div>
-                    <p className="card-text">
-                      {p.description.substring(0, 60)}...
-                    </p>
-                    <div className="card-name-price">
-                      <button
-                        className="btn btn-info ms-1"
-                        onClick={() => navigate(`/product/${p.slug}`)}
-                      >
-                        More Details
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
+          <div className="cards-container">
+        {products?.map((p) => (
+          <div className="category-card" key={p._id}>
+            <img
+              src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+              className="card-img-top"
+              alt={p.name}
+            />
+            <div className="card-body">
+              <div className="card-name-price">
+                <h5 className="card-title">{p.name}</h5>
+                <h5 className="card-title card-price">
+                  {p.price.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "INR",
+                  })}
+                </h5>
+              </div>
+              <p className="card-text">
+                {p.description.substring(0, 60)}...
+              </p>
+              <div className="card-name-price">
+                <button
+                  className="btn btn-info ms-1"
+                  onClick={() => navigate(`/product/${p.slug}`)}
+                >
+                  More Details
+                </button>
+              </div>
             </div>
+          </div>
+        ))}
+      </div>
           </div>
         </div>
       </div>

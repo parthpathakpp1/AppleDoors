@@ -19,11 +19,14 @@ const ProductDetails = () => {
     try {
       const { data } = await axios.get(`http://localhost:8080/api/v1/product/get-product/${params.slug}`);
       setProduct(data?.product);
-      getSimilarProduct(data?.product._id, data?.product.category._id);
+      if (data?.product._id && data?.product.category._id) {
+        getSimilarProduct(data?.product._id, data?.product.category._id);
+      }
     } catch (error) {
       console.log(error);
     }
   };
+  
 
   const getSimilarProduct = async (pid, cid) => {
     try {
@@ -64,7 +67,7 @@ const ProductDetails = () => {
         </div>
       </div>
       <hr />
-      <div className="similar-products">
+      {/* <div className="similar-products">
         <h2 className="similar-products-title">Similar Products ➡️</h2>
         {relatedProducts.length < 1 && (
           <p className="similar-products-text">
@@ -100,7 +103,7 @@ const ProductDetails = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
       <LandingFooter />
     </>
   );
