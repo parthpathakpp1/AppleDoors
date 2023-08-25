@@ -21,6 +21,7 @@ const UpdateProduct = () => {
     const [quantity, setQuantity] = useState("");
     const [shipping, setShipping] = useState("");
     const [photo, setPhoto] = useState("");
+    const [secondPhoto, setSecondPhoto] = useState("");
     const [id, setId] = useState("");
 
     
@@ -65,30 +66,34 @@ const UpdateProduct = () => {
 
     //create product function
     const handleUpdate = async (e) => {
-        e.preventDefault();
-        try {
-            const productData = new FormData();
-            productData.append("name", name);
-            productData.append("description", description);
-            productData.append("price", price);
-            productData.append("quantity", quantity);
-            photo && productData.append("photo", photo);
-            productData.append("category", category);
-            const { data } = axios.put(
-                `http://localhost:8080/api/v1/product/update-product/${id}`,
-                productData
-            );
-            if (data?.success) {
-                toast.error(data?.message);
-            } else {
-                toast.success("Product Updated Successfully");
-                navigate("/dashboard/admin/products");
-            }
-        } catch (error) {
-            console.log(error);
-            toast.error("something went wrong");
+      e.preventDefault();
+      try {
+        const productData = new FormData();
+        productData.append("name", name);
+        productData.append("description", description);
+        productData.append("price", price);
+        productData.append("quantity", quantity);
+        photo && productData.append("photo", photo);
+        secondPhoto && productData.append("secondPhoto", secondPhoto); // Add this line
+        productData.append("category", category);
+        
+        const { data } = axios.put(
+          `http://localhost:8080/api/v1/product/update-product/${id}`,
+          productData
+        );
+        if (data?.success) {
+          toast.error(data?.message);
+        } else {
+          toast.success("Product Updated Successfully");
+          navigate("/dashboard/admin/products");
         }
+      } catch (error) {
+        console.log(error);
+        toast.error("Something went wrong");
+      }
     };
+    
+
 
     //delete a product
     const handleDelete = async () => {
@@ -147,11 +152,47 @@ const UpdateProduct = () => {
               </label>
             </div>
 
+            <div className='update-product-upload'>
+  <label className='update-product-upload-label'>
+    {secondPhoto ? secondPhoto.name : 'Upload Second Photo'}
+    <input
+      type='file'
+      name='secondPhoto'
+      accept='image/*'
+      onChange={(e) => setSecondPhoto(e.target.files[0])}
+      hidden
+    />
+  </label>
+</div>
+
+
             <div className='update-product-image'>
               {photo ? (
                 <div className='update-product-image-preview'>
                   <img
                     src={URL.createObjectURL(photo)}
+                    alt='product_photo'
+                    height={'200px'}
+                    className='img img-responsive'
+                  />
+                </div>
+              ) : (
+                <div className='update-product-image-preview'>
+                  <img
+                    src={`/api/v1/product/product-photo/${id}`}
+                    alt='product_photo'
+                    height={'200px'}
+                    className='img img-responsive'
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className='update-product-image'>
+              {secondPhoto ? (
+                <div className='update-product-image-preview'>
+                  <img
+                    src={URL.createObjectURL(secondPhoto)}
                     alt='product_photo'
                     height={'200px'}
                     className='img img-responsive'

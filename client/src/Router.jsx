@@ -37,7 +37,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/customization" element={<DoorCard />} />
+        <Route path="/customization" element={<Customization />} />
         <Route path="/product/:slug" element={<ProductDetails/>} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/category/:slug" element={<CategoryProduct />} />

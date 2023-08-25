@@ -60,35 +60,35 @@
     margin-left: 25px;
 }
   
-  .back-Door-1 {
+  .back-Product-1 {
     width: 33.0625em;
     height: 40.5em;
     background: url(/Door4back.png) center/cover no-repeat;
     transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
 }
   
-.front-Door-2 {
+.front-Product-1{
   width: 33.0625em;
   height: 40.5em;
   background: url(/Door1.png) center/cover no-repeat;
   transform: translate3d(0, 0, 2.1875em);
 }
 
-.side-Door-2 {
+.side-Product-1 {
   width: 4.375em;
   transform: rotateY(-90deg) translate3d(0,0,2.1875em);
   background: #000;
   margin-left: 47px;
 }
 
-.page-Door-2 {
+.page-Product-1{
   width: 4.375em;
   background: #ccc;
   transform: rotateY(90deg) translate3d(0,0,24.9em);
   transform-origin: bottom;
 }
 
-.back-Door-2{
+.back-Product-1{
     width: 33.0625em;
     height: 40.5em;
     background: url(/Door1back.png) center/cover no-repeat;

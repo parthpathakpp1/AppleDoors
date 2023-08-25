@@ -12,8 +12,13 @@ connectDB();
 const app = express();
 
 //middlewares
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 app.use(cors({ origin: '*' }));
+app.use("/api/v1/product", (req, res, next) => {
+    res.setHeader("Cache-Control", "no-store, max-age=0"); // Disable caching
+    next();
+  }, productRoutes);
+  
 
 
 //routes
