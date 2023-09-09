@@ -120,6 +120,14 @@ const CartPage = () => {
                                             width="100%"
                                             height={"130px"}
                                         />
+
+                                          <img
+                                            src={`http://localhost:8080/api/v1/product/product-photo/${p._id}?photo=secondPhoto`}
+                                            className="cart-card-img-top"
+                                            alt={p.name}
+                                            width="100%"
+                                            height={"130px"}
+                                        />
                                     </div>
                                     <div className="cart-card-content">
                                         <p>{p.name}</p>
