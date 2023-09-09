@@ -6,11 +6,20 @@ import { saveAs } from "file-saver";
 import { useParams, useSearchParams } from "react-router-dom";
 import Header from "../components/Header/Header";
 import LandingFooter from "../components/Footer/Footer";
+import { useCart } from "../context/cart";
+import { toast } from "react-toastify";
 
 const Customization = () => {
   const { doorName } = useParams();
   const [params] = useSearchParams();
   const id = params.get("id");
+  const [totalPrice, setTotalPrice] = useState(0);
+   const [frontItemPrice, setFrontItemPrice] = useState(0); // State variable for front item price
+  const [backItemPrice, setBackItemPrice] = useState(0); 
+  const [bgColor,setBgColor] = useState('#000');
+  const [cart, setCart] = useCart();
+
+  
 
   const frontClass = `front-${doorName}`;
   const backClass = `back-${doorName}`;
@@ -25,7 +34,7 @@ const Customization = () => {
     backgroundSize: "cover",
   });
   const [products, setProducts] = useState([]);
-  const [selectedId, setSelectedId] = useState(id);
+  const [selectedId, setSelectedId] = useState({ front: id, back: id });
 
   const getAllProducts = async () => {
     try {
@@ -37,6 +46,31 @@ const Customization = () => {
       console.log(error);
     }
   };
+
+
+ const handleAddToCart = () => {
+  const customizedDoor = {
+    imageUrl: imageCss.backgroundImage,
+    doorName: doorName,
+    price: totalPrice,
+    quantity: 1,
+    customization: selectedId, // Store the selected customization here
+  };
+
+  setCart([...cart, customizedDoor]);
+  localStorage.setItem("cart", JSON.stringify([...cart, customizedDoor]));
+  toast.success("Customized door added to cart", {
+    position: toast.POSITION.BOTTOM_RIGHT,
+  });
+};
+
+  
+
+   
+  const handleColorChange = (e) => {
+    setBgColor(e.target.value);
+    } 
+
 
   const getProductNameById = (id) => {
     let productName;
@@ -54,11 +88,11 @@ const Customization = () => {
     rotation > -90 && rotation < 90
       ? setImageCss({
           ...imageCss,
-          backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId}")`,
+          backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId.front}")`,
         })
       : setImageCss({
           ...imageCss,
-          backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId}?photo=secondPhoto")`,
+          backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId.back}?photo=secondPhoto")`,
         });
   }, [rotation]);
 
@@ -103,13 +137,49 @@ const Customization = () => {
     };
   }, []);
 
+  useEffect(() => {
+    // Calculate and set the prices of the front and back items
+    const frontItem = products.find((p) => p._id === selectedId.front);
+    const backItem = products.find((p) => p._id === selectedId.back);
+
+    if (frontItem) {
+      setFrontItemPrice(frontItem.price);
+    } else {
+      setFrontItemPrice(0);
+    }
+
+    if (backItem) {
+      setBackItemPrice(backItem.price);
+    } else {
+      setBackItemPrice(0);
+    }
+  }, [selectedId, products]);
+
+  const calculateTotalPrice = () => {
+    let total = 0;
+    const selectedProducts = [selectedId.front, selectedId.back];
+    for (const id of selectedProducts) {
+      const product = products.find((p) => p._id === id);
+      if (product) {
+        total += product.price;
+      }
+    }
+    return total;
+  };
+
+  useEffect(() => {
+    // Calculate the total price whenever selected designs change
+    const newTotalPrice = calculateTotalPrice();
+    setTotalPrice(newTotalPrice);
+  }, [selectedId, products]);
+
   const handleButtonClick = (angle) => {
     setRotation(angle);
   };
 
   return (
     <>
-    <Header />
+      <Header />
       <div className="customization-page">
         <motion.h2
           initial={{ opacity: 0 }}
@@ -135,18 +205,41 @@ const Customization = () => {
         <div className="door-card">
           <div className="door-content">
             {products?.map((p) => (
-              <div
-                onClick={() => {
-                  setSelectedId(p._id);
-                  setImageCss({
-                    ...imageCss,
-                    backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${p._id}")`,
-                  });
-                }}
-                className="item-card"
-                key={p._id}
-              >
+              <div className="item-card" key={p._id}>
                 <div className="item-images">
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      marginTop: "5px",
+                      padding: "10px",
+                    }}
+                  >
+                    <motion.button
+                      onClick={() => {
+                        setSelectedId({ ...selectedId, front: p._id });
+                        setImageCss({
+                          ...imageCss,
+                          backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${p._id}")`,
+                        });
+                      }}
+                      className="btn-customize"
+                    >
+                      select front
+                    </motion.button>
+                    <motion.button
+                      onClick={() => {
+                        setSelectedId({ ...selectedId, back: p._id });
+                        setImageCss({
+                          ...imageCss,
+                          backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${p._id}?photo=secondPhoto")`,
+                        });
+                      }}
+                      className="btn-customize"
+                    >
+                      select back
+                    </motion.button>
+                  </div>
                   <img
                     src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
                     className="item-img"
@@ -182,7 +275,7 @@ const Customization = () => {
             handleButtonClick(0);
             setImageCss({
               ...imageCss,
-              backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId}")`,
+              backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId.front}")`,
             });
           }}
         >
@@ -197,7 +290,7 @@ const Customization = () => {
             console.log(products);
             setImageCss({
               ...imageCss,
-              backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId}?photo=secondPhoto")`,
+              backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId.back}?photo=secondPhoto")`,
             });
           }}
         >
@@ -226,19 +319,23 @@ const Customization = () => {
           whileTap={{ scale: 0.9 }}
           onClick={() => {
             saveAs(
-              `http://localhost:8080/api/v1/product/product-photo/${selectedId}?photo=secondPhoto`,
-              `${getProductNameById(selectedId)}-back`
+              `http://localhost:8080/api/v1/product/product-photo/${selectedId.front}?photo=secondPhoto`,
+              `${getProductNameById(selectedId.front)}-back`
             );
             saveAs(
-              `http://localhost:8080/api/v1/product/product-photo/${selectedId}`,
-              `${getProductNameById(selectedId)}-front`
+              `http://localhost:8080/api/v1/product/product-photo/${selectedId.back}`,
+              `${getProductNameById(selectedId.back)}-front`
             );
           }}
         >
           Download
         </motion.button>
+
+        <div>
+          <input type="color" onChange={handleColorChange} />
+        </div>
       </motion.div>
-      <section id="design" className="door-showcase">
+      <section id="design" className="door-showcase" style={{backgroundColor:`${bgColor}`}}>
         <div className="wrapper">
           <motion.div
             className="door"
@@ -257,6 +354,17 @@ const Customization = () => {
             <div style={imageCss} className="back-Door"></div>
           </motion.div>
         </div>
+      
+
+        <div className="total-price">
+          <div className="item-price">
+  <span className="front-price">Front Item Price: ₹{frontItemPrice}</span>
+  <span className="back-price">Back Item Price: ₹{backItemPrice}</span>
+</div>
+          Total Price: ₹{totalPrice}
+        </div>
+        <button onClick={handleAddToCart}>Add to Cart</button>
+
       </section>
       <LandingFooter />
     </>
