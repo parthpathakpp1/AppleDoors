@@ -14,12 +14,10 @@ const Customization = () => {
   const [params] = useSearchParams();
   const id = params.get("id");
   const [totalPrice, setTotalPrice] = useState(0);
-   const [frontItemPrice, setFrontItemPrice] = useState(0); // State variable for front item price
-  const [backItemPrice, setBackItemPrice] = useState(0); 
-  const [bgColor,setBgColor] = useState('#000');
+  const [frontItemPrice, setFrontItemPrice] = useState(0); // State variable for front item price
+  const [backItemPrice, setBackItemPrice] = useState(0);
+  const [bgColor, setBgColor] = useState("#000");
   const [cart, setCart] = useCart();
-
-  
 
   const frontClass = `front-${doorName}`;
   const backClass = `back-${doorName}`;
@@ -47,41 +45,53 @@ const Customization = () => {
     }
   };
 
+  const handleAddToCart = () => {
+    let customizedDoor = {
+      _id: selectedId.front,
+      name: doorName,
+      price: totalPrice,
+      quantity: 1,
+      description: getProductById(selectedId.front).description,
+    };
+    if (selectedId.front != selectedId.back) {
+      customizedDoor = {
+        ...customizedDoor,
+        different: true,
+        _id: selectedId,
+        name: {
+          front: getProductById(selectedId.front).name,
+          back: getProductById(selectedId.back).name,
+        },
+        description: {
+          front: getProductById(selectedId.front).description,
+          back: getProductById(selectedId.back).description,
+        },
+        price:
+          getProductById(selectedId.front).price +
+          getProductById(selectedId.back).price,
+      };
+    }
 
- const handleAddToCart = () => {
-  const customizedDoor = {
-    imageUrl: imageCss.backgroundImage,
-    doorName: doorName,
-    price: totalPrice,
-    quantity: 1,
-    customization: selectedId, // Store the selected customization here
+    setCart([...cart, customizedDoor]);
+    localStorage.setItem("cart", JSON.stringify([...cart, customizedDoor]));
+    toast.success("Customized door added to cart", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
   };
 
-  setCart([...cart, customizedDoor]);
-  localStorage.setItem("cart", JSON.stringify([...cart, customizedDoor]));
-  toast.success("Customized door added to cart", {
-    position: toast.POSITION.BOTTOM_RIGHT,
-  });
-};
-
-  
-
-   
   const handleColorChange = (e) => {
     setBgColor(e.target.value);
-    } 
+  };
 
-
-  const getProductNameById = (id) => {
-    let productName;
+  const getProductById = (id) => {
+    let product;
     for (let i = 0; i < products.length; i++) {
       if (products[i]._id == id) {
-        const product = products[i];
-        productName = product.name;
+        product = products[i];
         break;
       }
     }
-    return productName;
+    return product;
   };
 
   useEffect(() => {
@@ -287,7 +297,6 @@ const Customization = () => {
           whileTap={{ scale: 0.9 }}
           onClick={() => {
             handleButtonClick(180);
-            console.log(products);
             setImageCss({
               ...imageCss,
               backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId.back}?photo=secondPhoto")`,
@@ -320,11 +329,11 @@ const Customization = () => {
           onClick={() => {
             saveAs(
               `http://localhost:8080/api/v1/product/product-photo/${selectedId.front}?photo=secondPhoto`,
-              `${getProductNameById(selectedId.front)}-back`
+              `${getProductById(selectedId.front).slug}-back`
             );
             saveAs(
               `http://localhost:8080/api/v1/product/product-photo/${selectedId.back}`,
-              `${getProductNameById(selectedId.back)}-front`
+              `${getProductById(selectedId.back).slug}-front`
             );
           }}
         >
@@ -335,7 +344,11 @@ const Customization = () => {
           <input type="color" onChange={handleColorChange} />
         </div>
       </motion.div>
-      <section id="design" className="door-showcase" style={{backgroundColor:`${bgColor}`}}>
+      <section
+        id="design"
+        className="door-showcase"
+        style={{ backgroundColor: `${bgColor}` }}
+      >
         <div className="wrapper">
           <motion.div
             className="door"
@@ -354,17 +367,19 @@ const Customization = () => {
             <div style={imageCss} className="back-Door"></div>
           </motion.div>
         </div>
-      
 
         <div className="total-price">
           <div className="item-price">
-  <span className="front-price">Front Item Price: ₹{frontItemPrice}</span>
-  <span className="back-price">Back Item Price: ₹{backItemPrice}</span>
-</div>
+            <span className="front-price">
+              Front Item Price: ₹{frontItemPrice}
+            </span>
+            <span className="back-price">
+              Back Item Price: ₹{backItemPrice}
+            </span>
+          </div>
           Total Price: ₹{totalPrice}
         </div>
         <button onClick={handleAddToCart}>Add to Cart</button>
-
       </section>
       <LandingFooter />
     </>
