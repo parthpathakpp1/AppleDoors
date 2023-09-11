@@ -152,3 +152,34 @@ h1 {
 .btn-cart:hover {
   transform: scale(1.05); /* Increase size on hover */
 }
+@media screen and (max-width: 768px) {
+  .door-content {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Reduce gap between items */
+  }
+
+  .door-image {
+    max-height: 250px; /* Adjust max height for small screens */
+  }
+
+  .item-card {
+    flex-basis: calc(50% - 10px); /* Two items per row on small screens */
+    max-width: calc(50% - 10px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .door-card {
+    padding: 4px; /* Further reduce padding for small screens */
+  }
+
+  .door-image {
+    max-height: 200px; /* Reduce max height for smaller screens */
+  }
+
+  .item-card {
+    flex-basis: calc(100% - 10px); /* One item per row on extra small screens */
+    max-width: calc(100% - 10px);
+  }
+}

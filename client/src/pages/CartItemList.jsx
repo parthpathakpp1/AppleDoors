@@ -82,6 +82,7 @@ const handlePayment = async () => {
                     className='product-img'
                     alt={p.name}
                     width={200}
+                    loading="lazy"
                   />
             <div className="cart-item-details">
               <p className="cart-item-name">{p.name}</p>

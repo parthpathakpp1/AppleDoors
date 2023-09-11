@@ -133,4 +133,97 @@
   font-size: 1.2rem;
 }
 
-/* ... (rest of the styles) */
+@media (max-width: 768px) {
+  .cart-page {
+    padding: 10px;
+  }
+
+  .cart-content {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .cart-heading {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+
+  .cart-item-count {
+    font-size: 1rem;
+  }
+
+  .cart-container {
+    flex-direction: column;
+  }
+
+  .cart-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Add more responsive styles as needed */
+
+  .cart-card-row {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .cart-card-img-top {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .cart-card-content {
+    margin-left: 0;
+  }
+
+  .cart-card-content p {
+    font-size: 0.9rem;
+  }
+
+  .cart-remove-btn {
+    justify-content: center;
+    margin-top: 5px;
+  }
+
+  .cart-summary {
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  .cart-summary h2 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+  }
+
+  .cart-summary p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+
+  .cart-summary hr {
+    margin-bottom: 10px;
+  }
+
+  .cart-summary h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+
+  .cart-summary-content h4 {
+    font-size: 1rem;
+    margin-bottom: 3px;
+  }
+
+  .cart-summary-content h5 {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+
+  .cart-summary-content button {
+    font-size: 0.9rem;
+    padding: 3px 10px;
+  }
+}
+

@@ -214,3 +214,28 @@
   font-weight: bold; /* Make the prices bold */
 }
 
+/* Add to Cart Button Styling */
+button.addToCart {
+  background-color: #42a5f5; /* Change the background color */
+  color: #fff; /* Change the text color to white */
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px; /* Adjust padding for better button size */
+  font-size: 18px; /* Increase font size */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth transitions */
+}
+
+button.addToCart:hover {
+  background-color: #0077b6; /* Change background color on hover */
+  transform: scale(1.05); /* Add a slight scale effect on hover */
+}
+
+/* Center the button horizontally */
+button.addToCart {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px; /* Adjust top margin for spacing */
+}
+
+/* You can also add additional styling as needed, such as box shadow or text shadow */

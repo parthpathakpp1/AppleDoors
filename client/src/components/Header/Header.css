@@ -170,12 +170,13 @@
 
   .h-menu {
     font-family: 'Montserrat', sans-serif;
+    
     font-weight: bold;
     color: var(--black);
     position: absolute;
     top: 3.5rem;
     right: 4rem;
-    background: white;
+    background: var(--primary);
     flex-direction: column;
     font-weight: 500;
     gap: 2rem;

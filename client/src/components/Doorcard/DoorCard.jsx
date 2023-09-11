@@ -77,12 +77,14 @@ const DoorCard = ({ imageUrl, doorName, price }) => {
                     src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
                     className="item-img"
                     alt={p.name}
+                    loading="lazy"
                   />
 
                   <img
                     src={`http://localhost:8080/api/v1/product/product-photo/${p._id}?photo=secondPhoto`}
                     className="item-img"
                     alt={`${p.name} - Second Photo`}
+                    loading="lazy"
                   />
                 </div>
                 <div className="item-details">
