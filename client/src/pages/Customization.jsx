@@ -57,7 +57,8 @@ const Customization = () => {
       customizedDoor = {
         ...customizedDoor,
         different: true,
-        _id: selectedId,
+        _id: selectedId.front,
+        image_ids: selectedId,
         name: {
           front: getProductById(selectedId.front).name,
           back: getProductById(selectedId.back).name,
@@ -379,7 +380,9 @@ const Customization = () => {
           </div>
           Total Price: ₹{totalPrice}
         </div>
-        <button onClick={handleAddToCart}  className="addToCart">Add to Cart</button>
+        <button onClick={handleAddToCart} className="addToCart">
+          Add to Cart
+        </button>
       </section>
       <LandingFooter />
     </>
