@@ -379,7 +379,7 @@ const Customization = () => {
           </div>
           Total Price: ₹{totalPrice}
         </div>
-        <button onClick={handleAddToCart}>Add to Cart</button>
+        <button onClick={handleAddToCart}  className="addToCart">Add to Cart</button>
       </section>
       <LandingFooter />
     </>
