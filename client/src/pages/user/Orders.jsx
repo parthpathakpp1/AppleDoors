@@ -10,26 +10,26 @@ import moment from "moment";
 
 const Orders = () => {
 
-  const [orders, setOrders] = useState([]);
-  const [auth, setAuth] = useAuth('');
-  
-  const getOrders = async () => {
-      try {
-          const { data } = await axios.get("http://localhost:8080/api/v1/auth/orders");
-          setOrders(data);
-      } catch (error) {
-          console.log(error);
-      }
-  };
+    const [orders, setOrders] = useState([]);
+    const [auth, setAuth] = useAuth('');
 
-  useEffect(() => {
-      if (auth?.token) getOrders();
-  }, [auth?.token]);
+    const getOrders = async () => {
+        try {
+            const { data } = await axios.get("http://localhost:8080/api/v1/auth/orders");
+            setOrders(data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-  return (
-    <>
-    <Header />
-    <div className= "orders-dashboard">
+    useEffect(() => {
+        if (auth?.token) getOrders();
+    }, [auth?.token]);
+
+    return (
+        <>
+            <Header />
+            <div className="orders-dashboard">
                 <div className="orders-dashboard-row">
                     <div className="orders-dashboard-col3">
                         <UserMenu />
@@ -56,35 +56,55 @@ const Orders = () => {
                                                 <td>{o?.status}</td>
                                                 <td>{o?.buyer?.name}</td>
                                                 <td>{moment(o?.createAt).fromNow()}</td>
-                                                <td>{o?.payment.success ? "Success" : "Failed"}</td>
+                                                <td>{o?.payment?.success ? "Success" : "Failed"}</td>
                                                 <td>{o?.products?.length}</td>
                                             </tr>
                                         </tbody>
                                     </table>
                                     <div className="orders-container">
                                         {o?.products?.map((p, i) => (
-                                            <div className="orders-card" key={p._id}>
+                                            <div className="orders-card" key={p?._id}>
+                                            {p?.different ? (
                                                 <div className="orders-card-content">
                                                     <img
-                                                        src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+                                                        src={`http://localhost:8080/api/v1/product/product-photo/${p?.image_ids?.front}`}
+
                                                         className="orders-card-img"
-                                                        alt={p.name}
+                                                        alt={p?.name?.front}
                                                         width="100px"
                                                         height={"100px"}
                                                     />
 
                                                     <img
-                                                        src={`http://localhost:8080/api/v1/product/product-photo/${p._id}?photo=secondPhoto`}
+                                                        src={`http://localhost:8080/api/v1/product/product-photo/${p?.image_ids?.back}?photo=secondPhoto`}
                                                         className="cart-card-img-top"
-                                                        alt={p.name}
+                                                        alt={p?.name?.back}
                                                         width="100%"
                                                         height={"130px"}
-                                                />
+                                                    />
                                                 </div>
+                                            ) : (
+                                                <div className="orders-card-content">
+                                                    <img
+                                                        src={`http://localhost:8080/api/v1/product/product-photo/${p?._id}`}
+                                                        className="orders-card-img"
+                                                        alt={p?.name}
+                                                        width="100px"
+                                                        height={"100px"}
+                                                    />
+
+                                                    <img
+                                                        src={`http://localhost:8080/api/v1/product/product-photo/${p?._id}?photo=secondPhoto`}
+                                                        className="cart-card-img-top"
+                                                        alt={p?.name}
+                                                        width="100%"
+                                                        height={"130px"}
+                                                    />
+                                                </div>)}
                                                 <div className="orders-card-text">
-                                                    <p>{p.name}</p>
-                                                    <p>{p.description.substring(0, 30)}</p>
-                                                    <p>Price : {p.price}</p>
+                                                    <p>{p?.name?.front ? p?.name?.front + " " + p?.name?.back : p?.name}</p>
+                                                    {/* <p>{p?.description?.substring(0, 30)}</p> */}
+                                                    <p>Price : {p?.price}</p>
                                                 </div>
                                             </div>
                                         ))}
@@ -95,12 +115,12 @@ const Orders = () => {
                     </div>
                 </div>
             </div>
-     <LandingFooter />
- 
-  
-   </>
- 
-  )
+            <LandingFooter />
+
+
+        </>
+
+    )
 }
 
 export default Orders

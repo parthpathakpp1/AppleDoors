@@ -404,6 +404,7 @@ export const brainTreePaymentController = async (req, res) => {
       },
       function (error, result) {
         if (result) {
+          console.log(cart);
           const order = new orderModel({
             products: cart,
             payment: result,
