@@ -72,6 +72,14 @@ const Orders = () => {
                                                         width="100px"
                                                         height={"100px"}
                                                     />
+
+                                                    <img
+                                                        src={`http://localhost:8080/api/v1/product/product-photo/${p._id}?photo=secondPhoto`}
+                                                        className="cart-card-img-top"
+                                                        alt={p.name}
+                                                        width="100%"
+                                                        height={"130px"}
+                                                />
                                                 </div>
                                                 <div className="orders-card-text">
                                                     <p>{p.name}</p>
