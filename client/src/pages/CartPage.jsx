@@ -171,7 +171,7 @@ const CartPage = () => {
                   <div className="cart-card-row" key={`cart-item-${p._id.front}-${p._id.back}-${index}`}>
                     <div className="cart-card-col">
                       <img
-                        src={`http://localhost:8080/api/v1/product/product-photo/${p._id.front}`}
+                        src={`http://localhost:8080/api/v1/product/product-photo/${p.image_ids.front}`}
                         className="cart-card-img-top"
                         alt={p.name.front}
                         width="100%"
@@ -180,7 +180,7 @@ const CartPage = () => {
                       />
 
                       <img
-                        src={`http://localhost:8080/api/v1/product/product-photo/${p._id.back}?photo=secondPhoto`}
+                        src={`http://localhost:8080/api/v1/product/product-photo/${p.image_ids.back}?photo=secondPhoto`}
                         className="cart-card-img-top"
                         alt={p.name.back}
                         width="100%"
