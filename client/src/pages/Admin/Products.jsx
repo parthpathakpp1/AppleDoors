@@ -47,6 +47,10 @@ const Products = () => {
                     className='product-img'
                     alt={p.name}
                   />
+                      <img
+                     src={`http://localhost:8080/api/v1/product/product-photo/${p._id}?photo=secondPhoto`}
+                    className='product-img'
+                  />
                   <div className='product-details'>
                     <h5 className='product-title'>{p.name}</h5>
                     <p className='product-description'>{p.description}</p>
