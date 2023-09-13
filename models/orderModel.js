@@ -4,8 +4,6 @@ const orderSchema = new mongoose.Schema(
     {
         products: [
             {
-                type: mongoose.ObjectId,
-                ref: "Products",
             },
         ],
         payment: {},
