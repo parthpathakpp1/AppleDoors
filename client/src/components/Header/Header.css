@@ -174,8 +174,10 @@
     font-weight: bold;
     color: var(--black);
     position: absolute;
-    top: 3.5rem;
-    right: 4rem;
+      /* top: 3.5rem;
+    right: 4rem; */                   /*menu style change*/
+    top: 120px;
+    right: 0px !important;
     background: var(--primary);
     flex-direction: column;
     font-weight: 500;
