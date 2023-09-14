@@ -9,12 +9,11 @@
 
 .wrapper {
   perspective: 1000px;
-  margin-left: 20rem;
 }
 
 .door {
   transform-style: preserve-3d;
-  width: 50.0625em;
+  width: 42.06em;
   height: 40.5em;
   transform-origin: 13.53125em 4.375em;
   position: relative;
@@ -23,6 +22,7 @@
 .door > div {
   position: absolute;
   height: 40.5em;
+  margin-left: 3.3rem;
 }
 
 .front,
@@ -171,17 +171,16 @@
 }
 
 @media screen and (max-width: 600px) {
-  .door-showcase{
+  .door-showcase {
     display: flex;
     flex-direction: column;
   }
-  .wrapper{
-    margin-left: 10rem;
+  .wrapper {
   }
   .sidebar {
     left: 0; /* Adjust the left position */
     top: 80%;
-    width: 55%; /* Make the sidebar full-width */
+    width: 82%; /* Make the sidebar full-width */
     max-width: 100%; /* Ensure it doesn't exceed the viewport width */
     transform: translateY(-50%);
     display: flex;
@@ -198,12 +197,17 @@
 
 .total-price {
   font-size: 28px; /* Increase font size */
-  color:var(--primary); /* Change text color to your preferred color */
+  color: var(--primary); /* Change text color to your preferred color */
   margin-top: 20px; /* Add more top margin for spacing */
   text-align: center; /* Center the text horizontally */
   font-weight: bold; /* Make the text bold */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
-  background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Add a semi-transparent background */
   padding: 10px 20px; /* Add padding to the total price */
   border-radius: 10px; /* Round the corners */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a box shadow */
