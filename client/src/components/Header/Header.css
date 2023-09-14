@@ -1,0 +1,192 @@
+.h-wrapper {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  background-color: var(--black);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  padding: 2.5rem 0;
+}
+
+.logo {
+  opacity: 0;
+  animation: fadeInLogo 1.5s ease-in-out forwards;
+  font-size: 1.5rem; /* Increase font size */
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  margin-left: 10px;
+}
+
+@keyframes fadeInLogo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.h-container {
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  color: var(--secondary);
+}
+
+.h-menu {
+  gap: 4rem;
+}
+
+/* Dropdown menu styles */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: var(--black);
+  color: white;
+  top: 100%;
+  left: 0;
+  width: 200%; 
+  display: none;
+  flex-direction: column;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu a {
+  padding: 1rem;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+.dropdown-menu a:last-child {
+  padding-top: 1.3rem; 
+}
+
+.dashboard-link {
+  padding-top: 1.5rem;
+  font-size: 12px; 
+}
+
+.category-link{
+  text-decoration: none;
+  list-style: none;
+  padding: 20px 0 25px 10px;
+  transition: 0.3s ease, transform 0.3s ease;
+}
+
+.category-link li{
+  margin-top: 5px;
+}
+
+.category-link li:hover {
+  border-radius: 5px; 
+  transform: scale(1.05);
+
+}
+
+
+
+.logout-link{
+  font-size: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.h-menu a {
+  position: relative;
+  font-size: 1.1rem;
+  padding: 0 10px;
+  color: white;
+}
+
+.dropdown-item{
+  margin-top: 5rem;
+}
+
+.h-menu a::after {
+  content: "";
+  position: absolute;
+  background-color: #ff3c78;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+
+.h-menu a:hover {
+  color: #ffff;
+}
+
+.h-menu > *:hover::after {
+  cursor: pointer;
+  width: 100%;
+}
+
+.h-menu .active-color {
+  color: white;
+}
+
+
+
+
+.menu-icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+
+  .h-menu {
+    font-family: 'Montserrat', sans-serif;
+    
+    font-weight: bold;
+    color: var(--black);
+    position: absolute;
+      /* top: 3.5rem;
+    right: 4rem; */                   /*menu style change*/
+    top: 120px;
+    right: 0px !important;
+    background: var(--primary);
+    flex-direction: column;
+    font-weight: 500;
+    gap: 2rem;
+    padding: 3rem;
+    border-radius: 10px;
+    align-items: flex-start;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    transition: all 300ms ease-in;
+    z-index: 999;
+  }
+}

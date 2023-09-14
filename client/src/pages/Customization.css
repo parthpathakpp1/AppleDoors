@@ -1,0 +1,255 @@
+.door-showcase {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8px;
+  position: relative;
+}
+
+.wrapper {
+  perspective: 1000px;
+  margin-left: 20rem;
+}
+
+.door {
+  transform-style: preserve-3d;
+  width: 50.0625em;
+  height: 40.5em;
+  transform-origin: 13.53125em 4.375em;
+  position: relative;
+}
+
+.door > div {
+  position: absolute;
+  height: 40.5em;
+}
+
+.front,
+.back,
+.side {
+  background-size: cover;
+  pointer-events: none;
+}
+
+.front-Door {
+  width: 33.0625em;
+  height: 40.5em;
+  transform: translate3d(0, 0, 2.1875em);
+}
+
+.side-Door {
+  width: 4.375em;
+  transform: rotateY(-90deg) translate3d(0, 0, 2.1875em);
+  background: #000;
+  margin-left: 47px;
+}
+
+.page-Door {
+  width: 4.375em;
+  background: #ccc;
+  transform: rotateY(90deg) translate3d(0, 0, 24.9em);
+  transform-origin: bottom;
+}
+
+.back-Door {
+  width: 33.0625em;
+  height: 40.5em;
+  transform: rotateY(180deg) translate3d(0, 0, 2.1875em);
+}
+
+.customization-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 800px;
+  padding-top: 25px;
+  padding-bottom: 50px;
+}
+
+.customization-page h2 {
+  font-size: 3em;
+  color: #333;
+}
+
+.customization-page p {
+  font-size: 1.5rem;
+  color: #777;
+}
+
+.sidebar {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 100;
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* Adjust the width as needed */
+}
+
+.sidebar button {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  border: none;
+  background-color: #2196f3;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #007bff;
+}
+
+.sidebar button:last-child {
+  margin-bottom: 0;
+}
+
+.door-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.door-card {
+  background-color: #ffffff;
+  border-radius: 4px; /* Decrease border radius */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 8px; /* Decrease padding */
+  text-align: center;
+}
+
+.door-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0px; /* Add gap between item cards */
+}
+
+.door-image {
+  width: 100%;
+  max-height: 150px; /* Decrease max height */
+  object-fit: cover;
+  border-radius: 4px; /* Decrease border radius */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.item-image {
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-details {
+  padding: 10px 0;
+}
+
+.item-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  text-align: center; /* Center text */
+}
+
+.item-description {
+  font-size: 14px;
+  color: #555555;
+  text-align: center; /* Center text */
+}
+
+@media screen and (max-width: 600px) {
+  .door-showcase{
+    display: flex;
+    flex-direction: column;
+  }
+  .wrapper{
+    margin-left: 10rem;
+  }
+  .sidebar {
+    left: 0; /* Adjust the left position */
+    top: 80%;
+    width: 55%; /* Make the sidebar full-width */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    justify-content: space-around; /* Distribute buttons horizontally */
+  }
+
+  .sidebar button {
+    flex-grow: 1; /* Allow buttons to grow and fill the available space */
+    margin: 5px; /* Add some margin between buttons */
+  }
+}
+
+.total-price {
+  font-size: 28px; /* Increase font size */
+  color:var(--primary); /* Change text color to your preferred color */
+  margin-top: 20px; /* Add more top margin for spacing */
+  text-align: center; /* Center the text horizontally */
+  font-weight: bold; /* Make the text bold */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
+  background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background */
+  padding: 10px 20px; /* Add padding to the total price */
+  border-radius: 10px; /* Round the corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a box shadow */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.total-price:hover {
+  background-color: #eb094d; /* Change background color on hover */
+  color: #fff; /* Change text color on hover */
+}
+
+.item-price {
+  font-size: 16px; /* Adjust the font size as needed */
+  color: #777; /* Choose an appropriate text color */
+  margin-top: 10px; /* Add some top margin for spacing */
+  text-align: center; /* Center the text horizontally */
+}
+
+.item-price span {
+  display: block;
+  margin-top: 5px; /* Add some top margin between prices */
+  font-weight: bold; /* Make the prices bold */
+}
+
+/* Add to Cart Button Styling */
+button.addToCart {
+  background-color: #42a5f5; /* Change the background color */
+  color: #fff; /* Change the text color to white */
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px; /* Adjust padding for better button size */
+  font-size: 18px; /* Increase font size */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Add smooth transitions */
+}
+
+button.addToCart:hover {
+  background-color: #0077b6; /* Change background color on hover */
+  transform: scale(1.05); /* Add a slight scale effect on hover */
+}
+
+/* Center the button horizontally */
+button.addToCart {
+  display: block;
+  margin: 0 auto;
+  margin-top: 20px; /* Adjust top margin for spacing */
+}
+
+/* You can also add additional styling as needed, such as box shadow or text shadow */

@@ -1,0 +1,104 @@
+/* CategoryProduct.css */
+
+/* Container */
+.container-pro {
+  font-family: 'Montserrat', sans-serif;
+  padding: 10px;
+}
+
+/* Category Heading */
+.category h4 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+.category h6 {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #777;
+}
+
+/* Cards Container */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Category Card */
+.category-card {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .category-card {
+    width: calc(50% - 20px); /* Display two items per row on smaller screens */
+  }
+
+  .category h4 {
+    font-size: 1.5rem; /* Reduce heading font size on smaller screens */
+  }
+
+  .category h6 {
+    font-size: 1rem; /* Reduce subheading font size on smaller screens */
+  }
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.card-name-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 10px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #333;
+}
+
+.card-price {
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.btn-info {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-info:hover {
+  background-color: var(--primary);
+}

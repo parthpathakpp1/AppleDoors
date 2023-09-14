@@ -1,0 +1,44 @@
+[
+  {
+    "imageUrl": "https://ik.imagekit.io/durian1985/Durian/durian/product/800x800/820210810095326img.jpg?tr=w-453,q-100,f-auto",
+    "doorName": "door-1",
+    "price": 1500
+
+  },
+  {
+    "imageUrl": "https://ik.imagekit.io/durian1985/Durian/durian/product/800x800/820210810092957img.jpg?tr=w-453,q-100,f-auto",
+    "doorName": "door-2",
+    "price": 2000
+
+  },
+  {
+    "imageUrl": "https://ik.imagekit.io/durian1985/Durian/durian/product/800x800/1020210810102443img.jpg?tr=w-453,q-100,f-auto",
+    "doorName": "door-3",
+    "price": 3000  
+  },
+  {
+    "imageUrl": "https://ik.imagekit.io/durian1985/Durian/durian/product/800x800/920210810111126img.jpg?tr=w-453,q-100,f-auto",
+    "doorName": "door-4",
+    "price": 1250
+  },
+  {
+    "imageUrl": "https://ik.imagekit.io/durian1985/Durian/durian/product/800x800/920210810110256img.jpg?tr=w-453,q-100,f-auto",
+    "doorName": "door-5",
+    "price": 4000
+  },
+  {
+    "imageUrl": "https://ik.imagekit.io/durian1985/Durian/durian/product/800x800/1220210810105609img.jpg?tr=w-453,q-100,f-auto",
+    "doorName": "door-6",
+    "price": 1680
+  },
+  { 
+    "imageUrl": "https://ik.imagekit.io/durian1985/Durian/durian/product/800x800/1020210810105912img.jpg?tr=w-453,q-100,f-auto",
+    "doorName": "door-7",
+    "price": 2810
+  },
+  {
+    "imageUrl": "https://ik.imagekit.io/durian1985/Durian/durian/product/800x800/1020210810105351img.jpg?tr=w-453,q-100,f-auto",
+    "doorName": "door-8",
+    "price": 1990
+  }
+]

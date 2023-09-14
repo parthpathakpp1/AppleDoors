@@ -1,0 +1,124 @@
+/* ExtraContent.css */
+
+/* Reset box-sizing and set a base font-family */
+*, *:before, *:after {
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  /* Style for the section heading */
+  .heading {
+    text-align: center;
+    margin-bottom: 20px; /* Reduce margin for small screens */
+  }
+  
+  .heading__title {
+    font-size: 2.5rem;
+    color: #333;
+  }
+  
+  /* Style for the paragraph */
+  .para1 {
+    color: #555;
+    font-size: 0.90rem;
+    padding-top: 10px; /* Reduce padding for small screens */
+    line-height: 1.5;
+  }
+  
+  /* Style for the section separator line */
+  .heading__title:after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 170px;
+    height: 1px;
+    background-color: #f8d57b;
+  }
+  
+  /* Flex layout for the row */
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+  }
+  
+  .row::before {
+    content: " ";
+    display: block;
+  }
+  
+  /* Adjust styles for columns in the row */
+  .row .col2 {
+    flex: 0 0 100%; /* Full width on small screens */
+    max-width: 100%;
+    padding: 0 15px;
+    text-align: center;
+  }
+  
+  /* Style for the heading inside the columns */
+  .heading-in {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the subtitle inside the heading */
+  .heading-in--with-subtitle .heading-in__title {
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the button wrap */
+  .button-wrap {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Additional Styles for ExtraContent Layout */
+  .section-space {
+    padding: 40px 0; /* Reduce vertical padding on small screens */
+  }
+  
+  .custom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+  }
+  
+  /* Style for the image inside columns */
+  .row .col img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Style for the title inside columns */
+  .heading-in__title {
+    font-size: 2rem; /* Reduce font size on small screens */
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Style for the subtitle inside columns */
+  .heading-in__subtitle {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  /* Style for the button */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--primary);
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #e0245d;
+  }
+  

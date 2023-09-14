@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=REM:wght@600&display=swap');
+.door-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.door-card {
+  background-color: #ffffff;
+  border-radius: 4px; /* Decrease border radius */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 8px; /* Decrease padding */
+  text-align: center;
+}
+
+
+
+.door-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Add gap between item cards */
+}
+
+
+.door-image {
+  width: 100%;
+  max-height: 150px; /* Decrease max height */
+  object-fit: cover;
+  border-radius: 4px; /* Decrease border radius */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.item-image {
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.item-details {
+  padding: 10px 0;
+}
+
+.item-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  text-align: center; /* Center text */
+}
+
+.item-description {
+  font-size: 14px;
+  color: #555555;
+  text-align: center; /* Center text */
+}
+
+/* Products.css */
+.dashboard {
+  display: flex;
+}
+
+
+.allproducts-heading{
+  font-size: 2rem;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.item-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.item-card {
+  flex-basis: calc(20% - 10px); 
+  max-width: calc(25% - 10px);
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #f7f7f7;
+  border-radius: 4px; /* Decrease border radius */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: box-shadow 0.3s ease, transform 0.3s;
+}
+
+.item-card:hover {
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
+.item-img {
+  max-height: 200px; /* Decrease max height */
+  object-fit: cover;
+  border-radius: 4px; /* Decrease border radius */
+}
+
+
+.item-details {
+  padding-top: 10px;
+}
+
+.item-title {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.item-description {
+  font-size: 14px;
+  color: #555;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.btn-add-to-cart{
+  padding: 10px 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    background-color: black;
+    transition: transform 0.3s;
+}
+
+.btn-customize,
+.btn-cart {
+  padding: 10px 16px;
+  margin-right: 10px; /* Add a gap between the buttons */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  background-color: black; /* Set background color to black */
+  transition: transform 0.3s; /* Apply transform animation on hover */
+}
+
+.btn-customize:hover,
+.btn-cart:hover {
+  transform: scale(1.05); /* Increase size on hover */
+}
+@media screen and (max-width: 768px) {
+  .door-content {
+    flex-direction: column; /* Stack items vertically on small screens */
+    align-items: center; /* Center items vertically */
+    gap: 10px; /* Reduce gap between items */
+  }
+
+  .door-image {
+    max-height: 250px; /* Adjust max height for small screens */
+  }
+
+  .item-card {
+    flex-basis: calc(50% - 10px); /* Two items per row on small screens */
+    max-width: calc(50% - 10px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .door-card {
+    padding: 4px; /* Further reduce padding for small screens */
+  }
+
+  .door-image {
+    max-height: 200px; /* Reduce max height for smaller screens */
+  }
+
+  .item-card {
+    flex-basis: calc(100% - 10px); /* One item per row on extra small screens */
+    max-width: calc(100% - 10px);
+  }
+}

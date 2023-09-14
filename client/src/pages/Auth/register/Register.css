@@ -1,0 +1,13 @@
+.authform_heading {
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .error-message {
+    color: #ff3c78;
+    font-size: 14px;
+    margin-top: 5px;
+  }

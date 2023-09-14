@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=REM:wght@600&display=swap');
+.App {
+    position: relative;
+    overflow-x: clip;
+}
+
+.door-cards-container {
+    display: flex;
+    justify-content: space-around; 
+    flex-wrap: wrap; 
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-family: 'REM', sans-serif;
+    font-weight: bold;
+    color: var(--black);
+    margin-bottom: 20px;
+    text-align: center;
+    padding-top: 25px;
+   
+  }
+
+  h1>span{
+    color: #ff3c78;
+}
+  
+  
+.App>:nth-child(1) {
+    background: var(--black);
+    position: relative;
+}
+
+.white-gradient {
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    background: rgba(255, 255, 255, 0.522);
+    filter: blur(100px);
+}
+
+::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ff3c78;
+  border-radius: 25px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  animation: shiningEffect 2s linear infinite;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ff3c78;
+}
+
+
+.load-more-button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.load-more-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  background-color: #ff3c78;
+  transition: background-color 0.3s;
+}
+
+.load-more-button:hover {
+  background-color: #ff1470;
+}
+
+@keyframes shiningEffect {
+  0%, 100% {
+    background: #ff3c78;
+  }
+  50% {
+    background: #f38bff;
+  }
+}
