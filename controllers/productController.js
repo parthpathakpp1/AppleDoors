@@ -81,7 +81,7 @@ export const getProductController = async (req, res) => {
     res.status(200).send({
       success: true,
       counTotal: products.length,
-      message: "ALlProducts ",
+      message: "ALLProducts ",
       products,
     });
   } catch (error) {

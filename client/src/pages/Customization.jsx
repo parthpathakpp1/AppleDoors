@@ -115,7 +115,7 @@ const Customization = () => {
 
     let prev = 0;
     let calc = 0;
-    const sensitivity = 2;
+    const sensitivity = 3;
 
     const handleMouseDown = (e) => {
       const x = e.clientX;
@@ -137,13 +137,33 @@ const Customization = () => {
       window.addEventListener("mouseup", handleMouseUp);
     };
 
+    const handleTouchStart = (e) => {
+      const x = e.touches[0].clientX;
+
+      const handleTouchMove = (e) => {
+        calc = (e.touches[0].clientX - x) / sensitivity;
+        setRotation(calc);
+        book.style.transform = `rotateY(${calc + prev}deg)`;
+      };
+
+      section.addEventListener("touchmove", handleTouchMove);
+
+      const handleTouchEnd = () => {
+        section.removeEventListener("touchmove", handleTouchMove);
+      };
+
+      window.addEventListener("touchend", handleTouchEnd);
+    };
+
     if (section) {
       section.addEventListener("mousedown", handleMouseDown);
+      section.addEventListener("touchstart", handleTouchStart); // Add touch event listener
     }
 
     return () => {
       if (section) {
         section.removeEventListener("mousedown", handleMouseDown);
+        section.removeEventListener("touchstart", handleTouchStart); // Remove touch event listener
       }
     };
   }, []);
@@ -179,7 +199,7 @@ const Customization = () => {
   };
 
   useEffect(() => {
-    // Calculate the total price whenever selected designs change
+    
     const newTotalPrice = calculateTotalPrice();
     setTotalPrice(newTotalPrice);
   }, [selectedId, products]);
