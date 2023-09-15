@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap");
 :root {
-  --primary:  #ff3c78;
+  --primary: #ff3c78;
   --secondary: rgba(255, 255, 255, 0.78);
   --black: #131110;
   --blue-gradient: linear-gradient(97.05deg, #4066ff 3.76%, #2949c6 100%);
@@ -17,9 +17,12 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
+#root {
+  overflow: hidden;
+}
 a {
   color: inherit;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   text-decoration: none;
 }
 .paddings {

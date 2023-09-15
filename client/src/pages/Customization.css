@@ -171,6 +171,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .customization-page{
+    overflow: hidden;
+  }
   .door-showcase{
     display: flex;
     flex-direction: column;
