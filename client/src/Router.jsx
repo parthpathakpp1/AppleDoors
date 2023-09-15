@@ -13,7 +13,7 @@ import Profile from './pages/user/Profile';
 import Dashboard from './pages/user/Dashboard';
 import PrivateRoute from './components/Routes/Private';
 import AdminRoute from './components/Routes/Admin';
-import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminDashboard from './pages/Admin/AdminDashboard';
 import CreateCategory from './pages/Admin/CreateCategory';
 import CreateProduct from './pages/Admin/CreateProduct';
 import Products from './pages/Admin/Products';

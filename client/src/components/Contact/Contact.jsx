@@ -6,6 +6,7 @@ const Contact = () => {
     <div className="footer">
       <div className="container">
         <div className="contents">
+          
           <div className="get__in__touch">
             <h2>Subscribe to <span>Newsletter</span></h2>
             <p>
@@ -60,6 +61,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import './Header.css';
-import { BiMenuAltRight, BiChevronDown, BiChevronUp } from 'react-icons/bi';
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import OutsideClickHandler from 'react-outside-click-handler';
-import { useCart } from '../../context/cart';
-import { Badge } from 'antd';
-import { useAuth } from '../../context/auth';
-import useCategory from '../../hooks/useCategory';
+import React, { useState } from "react";
+import "./Header.css";
+import { BiMenuAltRight, BiChevronDown, BiChevronUp } from "react-icons/bi";
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import OutsideClickHandler from "react-outside-click-handler";
+import { useCart } from "../../context/cart";
+import { Badge } from "antd";
+import { useAuth } from "../../context/auth";
+import useCategory from "../../hooks/useCategory";
 
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
@@ -23,15 +23,14 @@ const Header = () => {
     setAuth({
       ...auth,
       user: null,
-      token: '',
+      token: "",
     });
-    localStorage.removeItem('auth');
+    localStorage.removeItem("auth");
   };
 
   const handleCategoryMenuToggle = () => {
     setCategoryMenuOpened((prev) => !prev);
   };
-
 
   const handleDropdownToggle = () => {
     setDropdownOpened((prev) => !prev);
@@ -47,7 +46,7 @@ const Header = () => {
 
   const getMenuStyles = (menuOpened) => {
     if (document.documentElement.clientWidth <= 800) {
-      return { right: !menuOpened && '-100%' };
+      return { right: !menuOpened && "-100%" };
     }
   };
 
@@ -55,28 +54,30 @@ const Header = () => {
     open: {
       right: 0,
       transition: {
-        type: 'spring',
+        type: "spring",
         stiffness: 400,
         damping: 40,
       },
+      display: "flex",
     },
     closed: {
-      right: '-100%',
+      right: "-100%",
       transition: {
-        type: 'spring',
+        type: "spring",
         stiffness: 400,
         damping: 40,
       },
+      display: "none",
     },
   };
 
   return (
     <>
-      <header className='h-wrapper'>
-        <div className='container'>
-          <Link to='/'>
+      <header className="h-wrapper">
+        <div className="container">
+          <Link to="/">
             <motion.div
-              className='logo'
+              className="logo"
               initial={{ opacity: 0, y: -40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
@@ -92,62 +93,86 @@ const Header = () => {
             }}
           >
             <motion.div
-              className='flexCenter h-menu'
+              className="flexCenter h-menu"
               style={getMenuStyles(menuOpened)}
               variants={menuVariants}
-              initial='closed'
-              animate={menuOpened ? 'open' : 'closed'}
+              initial="closed"
+              animate={menuOpened ? "open" : "closed"}
             >
-              <Link to='/'>
-                <motion.a href='' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <Link to="/">
+                <motion.a
+                  href=""
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
                   Home
                 </motion.a>
               </Link>
 
-              <Link to='/profile'>
-                <motion.a href='' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <Link to="/profile">
+                <motion.a
+                  href=""
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
                   Profile
                 </motion.a>
               </Link>
 
-              <div className={`dropdown ${categoryMenuOpened ? 'open' : ''}`}>
-              <Link to={"/categories"}>
-            <span className='dropdown-toggle' onClick={handleCategoryMenuToggle}>
-              Categories {categoryMenuOpened ? <BiChevronUp /> : <BiChevronDown />}
-            </span>
-            </Link>
-            <div className='dropdown-menu category-link'>
-            <li>
-            <Link className='dropdown-item' to={"/categories"}>
-                   All Categories
-                  </Link>   
-               
-            </li>
-              {categories?.map((c) => (
-                <li key={c.slug}>
-                  <Link className='dropdown-item' to={`/category/${c.slug}`}>
-                    {c.name}
-                  </Link>
-                </li>
-              ))}
-            </div>
-          </div>
+              <div className={`dropdown ${categoryMenuOpened ? "open" : ""}`}>
+                <Link to={"/categories"}>
+                  <span
+                    className="dropdown-toggle"
+                    onClick={handleCategoryMenuToggle}
+                  >
+                    Categories{" "}
+                    {categoryMenuOpened ? <BiChevronUp /> : <BiChevronDown />}
+                  </span>
+                </Link>
+                <div className="dropdown-menu category-link">
+                  <li>
+                    <Link className="dropdown-item" to={"/categories"}>
+                      All Categories
+                    </Link>
+                  </li>
+                  {categories?.map((c) => (
+                    <li key={c.slug}>
+                      <Link
+                        className="dropdown-item"
+                        to={`/category/${c.slug}`}
+                      >
+                        {c.name}
+                      </Link>
+                    </li>
+                  ))}
+                </div>
+              </div>
 
               {/* User dropdown */}
               {auth.user ? (
-                <div className={`dropdown ${dropdownOpened ? 'open' : ''}`}>
-                  <span className='dropdown-toggle' onClick={handleUserMenuToggle}>
-                  {auth?.user?.name} {userMenuOpened ? <BiChevronUp /> : <BiChevronDown />}
+                <div className={`dropdown ${dropdownOpened ? "open" : ""}`}>
+                  <span
+                    className="dropdown-toggle"
+                    onClick={handleUserMenuToggle}
+                  >
+                    {auth?.user?.name}{" "}
+                    {userMenuOpened ? <BiChevronUp /> : <BiChevronDown />}
                   </span>
-                  <div className='dropdown-menu dashboard-link'>
-                    <Link to={`/dashboard/${auth?.user?.role === 1 ? 'admin' : 'user'}`}>Dashboard</Link>
+                  <div className="dropdown-menu dashboard-link">
+                    <Link
+                      to={`/dashboard/${
+                        auth?.user?.role === 1 ? "admin" : "user"
+                      }`}
+                    >
+                      Dashboard
+                    </Link>
                     <motion.a
-                      className='active active-color logout-link'
-                      href=''
+                      className="active active-color logout-link"
+                      href=""
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
-                      <Link onClick={handleLogout} to='/login'>
+                      <Link onClick={handleLogout} to="/login">
                         Logout
                       </Link>
                     </motion.a>
@@ -155,18 +180,32 @@ const Header = () => {
                 </div>
               ) : (
                 <>
-                  <motion.a className='active active-color' href='' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                    <Link to='/register'>Signup</Link>
+                  <motion.a
+                    className="active active-color"
+                    href=""
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Link to="/register">Signup</Link>
                   </motion.a>
-                  <motion.a className='active active-color' href='' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                    <Link to='/login'>Login</Link>
+                  <motion.a
+                    className="active active-color"
+                    href=""
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <Link to="/login">Login</Link>
                   </motion.a>
                 </>
               )}
 
               <Badge count={cart?.length} showZero>
-                <Link to='/cart' className='cart-link'>
-                  <motion.a href='' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+                <Link to="/cart" className="cart-link">
+                  <motion.a
+                    href=""
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                  >
                     Cart
                   </motion.a>
                 </Link>
@@ -174,7 +213,7 @@ const Header = () => {
             </motion.div>
           </OutsideClickHandler>
           <div
-            className='menu-icon'
+            className="menu-icon"
             onClick={() => setMenuOpened((prev) => !prev)}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
