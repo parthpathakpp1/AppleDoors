@@ -36,3 +36,19 @@
   width: 100%;
   margin: 5px 0; /* Add margin between items */
 }
+
+/* AdminMenu.css */
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .dashboard-menu h4 {
+    margin: 10px 0 5px 10px; /* Adjust heading margin */
+    font-size: 1.5rem; /* Decrease font size for the heading */
+  }
+
+  .list-group-item {
+    padding: 8px 15px; /* Reduce padding for menu items */
+    margin: 5px 0; /* Add margin between items */
+  }
+}
+

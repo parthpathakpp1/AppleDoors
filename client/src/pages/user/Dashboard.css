@@ -1,38 +1,48 @@
-.dashboard {
-    display: flex;
-    margin: 20px;
-    padding: 20px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .dashboard h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
- 
-.card {
-    width: 75%;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .col-md-3 {
-    flex: 0 0 25%;
-    max-width: 25%;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: #f0f0f0; /* Add background color to the sidebar */
+/* Updated Dashboard.css for responsiveness */
+
+/* Container for dashboard content and sidebar */
+.dashboard-container {
+  display: flex;
+  flex-direction: row; /* Keep the sidebar and content side by side on larger screens */
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+  flex: 0 0 25%;
+  max-width: 25%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+}
+
+/* Content */
+.dashboard-content {
+  flex: 0 0 75%;
+  max-width: 75%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Card styles remain the same */
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  /* Adjust the layout for smaller screens here */
+  .dashboard-container {
+    flex-direction: column-reverse; /* Stack the sidebar below the content on smaller screens */
   }
 
-  .col-md-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
-    padding: 20px;
-    box-sizing: border-box;
+  .dashboard-sidebar {
+    flex: 1; /* Expand to take full width of the container */
+    max-width: none; /* Remove max-width */
   }
+
+  .dashboard-content {
+    flex: 1; /* Expand to take full width of the container */
+    max-width: none; /* Remove max-width */
+  }
+}

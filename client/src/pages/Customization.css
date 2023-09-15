@@ -171,33 +171,40 @@
 }
 
 @media screen and (max-width: 600px) {
-  .customization-page{
+  .customization-page {
     overflow: hidden;
   }
-  .door-showcase{
+
+  .door-showcase {
     display: flex;
     flex-direction: column;
   }
-  .wrapper{
+
+  .wrapper {
     margin-left: 10rem;
   }
+
   .sidebar {
     left: 0; /* Adjust the left position */
-    top: 80%;
-    width: 55%; /* Make the sidebar full-width */
+    top: auto; /* Remove the fixed positioning for better adaptability */
+    width: 100%; /* Make the sidebar full-width */
     max-width: 100%; /* Ensure it doesn't exceed the viewport width */
-    transform: translateY(-50%);
+    transform: none; /* Remove vertical translation */
     display: flex;
     flex-direction: row;
-    position: fixed;
     justify-content: space-around; /* Distribute buttons horizontally */
+    position: relative; 
+    font-size: 11px;/* Change positioning to relative */
   }
 
   .sidebar button {
     flex-grow: 1; /* Allow buttons to grow and fill the available space */
     margin: 5px; /* Add some margin between buttons */
   }
+
+  /* Adjust other styles as needed for smaller screens */
 }
+
 
 .total-price {
   font-size: 28px; /* Increase font size */
