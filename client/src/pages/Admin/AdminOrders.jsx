@@ -24,7 +24,7 @@ const AdminOrders = () => {
     const [auth, setAuth] = useAuth();
     const getOrders = async () => {
         try {
-            const { data } = await axios.get("http://localhost:8080/api/v1/auth/all-orders");
+            const { data } = await axios.get("https://apple-doors.onrender.com/api/v1/auth/all-orders");
             setOrders(data);
         } catch (error) {
             console.log(error);
@@ -37,7 +37,7 @@ const AdminOrders = () => {
 
     const handleChange = async (orderId, value) => {
         try {
-            const { data } = await axios.put(`http://localhost:8080/api/v1/auth/order-status/${orderId}`, {
+            const { data } = await axios.put(`https://apple-doors.onrender.com/api/v1/auth/order-status/${orderId}`, {
                 status: value,
             });
             getOrders();
@@ -95,7 +95,7 @@ const AdminOrders = () => {
                                             {p?.different ? (
                                                 <div className="orders-card-content">
                                                     <img
-                                                        src={`http://localhost:8080/api/v1/product/product-photo/${p?.image_ids?.front}`}
+                                                        src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p?.image_ids?.front}`}
 
                                                         className="orders-card-img"
                                                         alt={p?.name?.front}
@@ -104,7 +104,7 @@ const AdminOrders = () => {
                                                     />
 
                                                     <img
-                                                        src={`http://localhost:8080/api/v1/product/product-photo/${p?.image_ids?.back}?photo=secondPhoto`}
+                                                        src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p?.image_ids?.back}?photo=secondPhoto`}
                                                         className="cart-card-img-top"
                                                         alt={p?.name?.back}
                                                         width="100%"
@@ -114,7 +114,7 @@ const AdminOrders = () => {
                                             ) : (
                                                 <div className="orders-card-content">
                                                     <img
-                                                        src={`http://localhost:8080/api/v1/product/product-photo/${p?._id}`}
+                                                        src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p?._id}`}
                                                         className="orders-card-img"
                                                         alt={p?.name}
                                                         width="100px"
@@ -122,7 +122,7 @@ const AdminOrders = () => {
                                                     />
 
                                                     <img
-                                                        src={`http://localhost:8080/api/v1/product/product-photo/${p?._id}?photo=secondPhoto`}
+                                                        src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p?._id}?photo=secondPhoto`}
                                                         className="cart-card-img-top"
                                                         alt={p?.name}
                                                         width="100%"

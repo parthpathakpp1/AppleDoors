@@ -36,7 +36,7 @@ const Register = () => {
       if (!validatePassword(password)) {
         return;
       }
-      const res = await axios.post("http://localhost:8080/api/v1/auth/register", {
+      const res = await axios.post("https://apple-doors.onrender.com/api/v1/auth/register", {
         name,
         email,
         password,

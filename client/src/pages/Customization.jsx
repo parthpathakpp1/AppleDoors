@@ -26,7 +26,7 @@ const Customization = () => {
 
   const [rotation, setRotation] = useState(0);
   const [imageCss, setImageCss] = useState({
-    backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${id}")`,
+    backgroundImage: `url("https://apple-doors.onrender.com/api/v1/product/product-photo/${id}")`,
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -37,7 +37,7 @@ const Customization = () => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/v1/product/get-product"
+        "https://apple-doors.onrender.com/api/v1/product/get-product"
       );
       setProducts(data.products);
     } catch (error) {
@@ -99,11 +99,11 @@ const Customization = () => {
     rotation > -90 && rotation < 90
       ? setImageCss({
           ...imageCss,
-          backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId.front}")`,
+          backgroundImage: `url("https://apple-doors.onrender.com/api/v1/product/product-photo/${selectedId.front}")`,
         })
       : setImageCss({
           ...imageCss,
-          backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId.back}?photo=secondPhoto")`,
+          backgroundImage: `url("https://apple-doors.onrender.com/api/v1/product/product-photo/${selectedId.back}?photo=secondPhoto")`,
         });
   }, [rotation]);
 
@@ -251,7 +251,7 @@ const Customization = () => {
                         setSelectedId({ ...selectedId, front: p._id });
                         setImageCss({
                           ...imageCss,
-                          backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${p._id}")`,
+                          backgroundImage: `url("https://apple-doors.onrender.com/api/v1/product/product-photo/${p._id}")`,
                         });
                       }}
                       className="btn-customize"
@@ -263,7 +263,7 @@ const Customization = () => {
                         setSelectedId({ ...selectedId, back: p._id });
                         setImageCss({
                           ...imageCss,
-                          backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${p._id}?photo=secondPhoto")`,
+                          backgroundImage: `url("https://apple-doors.onrender.com/api/v1/product/product-photo/${p._id}?photo=secondPhoto")`,
                         });
                       }}
                       className="btn-customize"
@@ -272,13 +272,13 @@ const Customization = () => {
                     </motion.button>
                   </div>
                   <img
-                    src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+                    src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p._id}`}
                     className="item-img"
                     alt={p.name}
                   />
 
                   <img
-                    src={`http://localhost:8080/api/v1/product/product-photo/${p._id}?photo=secondPhoto`}
+                    src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p._id}?photo=secondPhoto`}
                     className="item-img"
                     alt={`${p.name} - Second Photo`}
                   />
@@ -306,7 +306,7 @@ const Customization = () => {
             handleButtonClick(0);
             setImageCss({
               ...imageCss,
-              backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId.front}")`,
+              backgroundImage: `url("https://apple-doors.onrender.com/api/v1/product/product-photo/${selectedId.front}")`,
             });
           }}
         >
@@ -320,7 +320,7 @@ const Customization = () => {
             handleButtonClick(180);
             setImageCss({
               ...imageCss,
-              backgroundImage: `url("http://localhost:8080/api/v1/product/product-photo/${selectedId.back}?photo=secondPhoto")`,
+              backgroundImage: `url("https://apple-doors.onrender.com/api/v1/product/product-photo/${selectedId.back}?photo=secondPhoto")`,
             });
           }}
         >
@@ -349,11 +349,11 @@ const Customization = () => {
           whileTap={{ scale: 0.9 }}
           onClick={() => {
             saveAs(
-              `http://localhost:8080/api/v1/product/product-photo/${selectedId.front}?photo=secondPhoto`,
+              `https://apple-doors.onrender.com/api/v1/product/product-photo/${selectedId.front}?photo=secondPhoto`,
               `${getProductById(selectedId.front).slug}-back`
             );
             saveAs(
-              `http://localhost:8080/api/v1/product/product-photo/${selectedId.back}`,
+              `https://apple-doors.onrender.com/api/v1/product/product-photo/${selectedId.back}`,
               `${getProductById(selectedId.back).slug}-front`
             );
           }}

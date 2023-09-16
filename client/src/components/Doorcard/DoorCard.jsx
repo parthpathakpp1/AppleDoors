@@ -18,7 +18,7 @@ const DoorCard = ({ imageUrl, doorName, price }) => {
   const getAllProducts = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/v1/product/get-product"
+        "https://apple-doors.onrender.com/api/v1/product/get-product"
       );
       setProducts(data.products);
     } catch (error) {
@@ -74,14 +74,14 @@ const DoorCard = ({ imageUrl, doorName, price }) => {
               <div className="item-card" key={p._id}>
                 <div className="item-images">
                   <img
-                    src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+                    src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p._id}`}
                     className="item-img"
                     alt={p.name}
                     loading="lazy"
                   />
 
                   <img
-                    src={`http://localhost:8080/api/v1/product/product-photo/${p._id}?photo=secondPhoto`}
+                    src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p._id}?photo=secondPhoto`}
                     className="item-img"
                     alt={`${p.name} - Second Photo`}
                     loading="lazy"
