@@ -24,7 +24,7 @@ const AdminOrders = () => {
     const [auth, setAuth] = useAuth();
     const getOrders = async () => {
         try {
-            const { data } = await axios.get("http://localhost:8080/api/v1/auth/all-orders");
+            const { data } = await axios.get("https://apple-doors.onrender.com/api/v1/auth/all-orders");
             setOrders(data);
         } catch (error) {
             console.log(error);
@@ -37,7 +37,7 @@ const AdminOrders = () => {
 
     const handleChange = async (orderId, value) => {
         try {
-            const { data } = await axios.put(`http://localhost:8080/api/v1/auth/order-status/${orderId}`, {
+            const { data } = await axios.put(`https://apple-doors.onrender.com/api/v1/auth/order-status/${orderId}`, {
                 status: value,
             });
             getOrders();
@@ -90,21 +90,49 @@ const AdminOrders = () => {
                                         </tbody>
                                     </table>
                                     <div className="orders-container">
-                                        {o?.products?.map((p, i) => (
-                                            <div className="orders-row mb-2 p-3 orders-card" key={p._id}>
-                                                <div className="orders-col-md-4">
+                                    {o?.products?.map((p, i) => (
+                                            <div className="orders-card" key={p?._id}>
+                                            {p?.different ? (
+                                                <div className="orders-card-content">
                                                     <img
-                                                        src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+                                                        src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p?.image_ids?.front}`}
+
                                                         className="orders-card-img"
-                                                        alt={p.name}
+                                                        alt={p?.name?.front}
                                                         width="100px"
                                                         height={"100px"}
                                                     />
+
+                                                    <img
+                                                        src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p?.image_ids?.back}?photo=secondPhoto`}
+                                                        className="cart-card-img-top"
+                                                        alt={p?.name?.back}
+                                                        width="100%"
+                                                        height={"130px"}
+                                                    />
                                                 </div>
-                                                <div className="orders-col-md-8">
-                                                    <p>{p.name}</p>
-                                                    <p>{p.description.substring(0, 30)}</p>
-                                                    <p>Price : {p.price}</p>
+                                            ) : (
+                                                <div className="orders-card-content">
+                                                    <img
+                                                        src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p?._id}`}
+                                                        className="orders-card-img"
+                                                        alt={p?.name}
+                                                        width="100px"
+                                                        height={"100px"}
+                                                    />
+
+                                                    <img
+                                                        src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p?._id}?photo=secondPhoto`}
+                                                        className="cart-card-img-top"
+                                                        alt={p?.name}
+                                                        width="100%"
+                                                        height={"130px"}
+                                                    />
+                                                </div>)}
+                                                <div className="orders-card-text">
+                                                    <p>{p?.name?.front ? p?.name?.front + " " + p?.name?.back : p?.name}</p>
+                                                    {/* <p>{p?.description?.substring(0, 30)}</p> */}
+                                                    <p>Price : {p?.price}</p>
                                                 </div>
                                             </div>
                                         ))}

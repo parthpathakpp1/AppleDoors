@@ -78,7 +78,7 @@ const handlePayment = async () => {
         {cart.map(p => (
           <li key={p.name} className="cart-item">
            <img
-                    src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+                    src={`https://apple-doors.onrender.com/api/v1/product/product-photo/${p._id}`}
                     className='product-img'
                     alt={p.name}
                     width={200}

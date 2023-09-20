@@ -81,7 +81,7 @@ export const getProductController = async (req, res) => {
     res.status(200).send({
       success: true,
       counTotal: products.length,
-      message: "ALlProducts ",
+      message: "ALLProducts ",
       products,
     });
   } catch (error) {
@@ -404,7 +404,6 @@ export const brainTreePaymentController = async (req, res) => {
       },
       function (error, result) {
         if (result) {
-          console.log(cart);
           const order = new orderModel({
             products: cart,
             payment: result,

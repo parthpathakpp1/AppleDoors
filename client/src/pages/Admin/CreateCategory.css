@@ -104,3 +104,63 @@ h1 {
 .submit-btn:hover {
   background-color: #007bff;
 }
+
+/* CreateCategory.css */
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column; /* Stack the sidebar below the content on smaller screens */
+  }
+  
+
+  .col-md-3, .col-md-9 {
+    flex: 0 0 100%; /* Full width for both sidebar and content on smaller screens */
+    max-width: 100%; /* Remove max-width */
+    padding: 10px; /* Reduce padding */
+    background-color: #ffffff; /* Change background color to white */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  h1.category-heading {
+    font-size: 1.5rem; /* Decrease font size for the heading */
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; /* Reduce margin on top for the table */
+  }
+
+  .table th,
+  .table td {
+    padding: 8px; /* Reduce padding for table cells */
+    text-align: center;
+  }
+
+  .btn {
+    padding: 6px 10px; /* Reduce padding for buttons */
+    margin: 5px 0; /* Add margin between buttons */
+  }
+  
+  .modal-content {
+    padding: 10px; /* Reduce padding for the modal content */
+  }
+  
+  .category-form {
+    flex-direction: column; /* Stack form elements vertically on smaller screens */
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .category-input {
+    width: 100%; /* Full width for input */
+    margin-bottom: 10px; /* Adjust margin between inputs */
+  }
+  
+  .submit-btn {
+    padding: 8px 15px; /* Adjust padding for the submit button */
+    margin-bottom: 10px; /* Adjust margin between the button and inputs */
+  }
+}

@@ -42,3 +42,24 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column; /* Stack the sidebar below the content on smaller screens */
+  }
+
+  .col-md-3, .col-md-9 {
+    flex: 0 0 100%; /* Full width for both sidebar and content on smaller screens */
+    max-width: 100%; /* Remove max-width */
+    padding: 10px; /* Reduce padding */
+  }
+
+  .dashboard h3 {
+    font-size: 18px; /* Slightly smaller font size */
+    margin-bottom: 10px;
+  }
+
+  .card {
+    padding: 15px; /* Reduce padding for the card */
+  }
+}

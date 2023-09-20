@@ -136,23 +136,23 @@ const Header = () => {
               {/* User dropdown */}
               {auth.user ? (
                 <div className={`dropdown ${dropdownOpened ? 'open' : ''}`}>
-                  <span className='dropdown-toggle' onClick={handleUserMenuToggle}>
-                  {auth?.user?.name} {userMenuOpened ? <BiChevronUp /> : <BiChevronDown />}
-                  </span>
-                  <div className='dropdown-menu dashboard-link'>
-                    <Link to={`/dashboard/${auth?.user?.role === 1 ? 'admin' : 'user'}`}>Dashboard</Link>
-                    <motion.a
-                      className='active active-color logout-link'
-                      href=''
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <Link onClick={handleLogout} to='/login'>
-                        Logout
-                      </Link>
-                    </motion.a>
-                  </div>
-                </div>
+    <span className='dropdown-toggle' onClick={handleUserMenuToggle}>
+      {auth?.user?.name} {userMenuOpened ? <BiChevronUp /> : <BiChevronDown />}
+    </span>
+    <div className='dropdown-menu dashboard-link'>
+      <Link to={`/dashboard/${auth?.user?.role === 1 ? 'admin' : 'user'}`}>Dashboard</Link>
+      <motion.a
+        className='active active-color logout-link'
+        href=''
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <Link onClick={handleLogout} to='/login'>
+          Logout
+        </Link>
+      </motion.a>
+    </div>
+  </div>
               ) : (
                 <>
                   <motion.a className='active active-color' href='' whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
