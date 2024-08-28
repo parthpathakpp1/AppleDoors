@@ -115,6 +115,7 @@ const Login = () => {
           </div>
           <div className="authpage_leftdiv">
           <button onClick={() => navigate("/register")} className="btn authpage_floatingbtn">Not have account? Register</button>
+              <img src='https://raw.githubusercontent.com/AbhiPatel10/Milan/main/src/assets/pictures/authpages/authbannerimg.webp' alt='image' />
           </div>
         </div>
       </div>
