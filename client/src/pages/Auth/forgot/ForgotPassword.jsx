@@ -111,10 +111,7 @@ const ForgotPassword = () => {
             </form>
           </div>
           <div className="authpage_leftdiv">
-            <img
-              src="https://milanhub.org/assets/authbannerimg-90821bd2.webp"
-              alt="Auth Banner"
-            />
+             <img src='https://raw.githubusercontent.com/AbhiPatel10/Milan/main/src/assets/pictures/authpages/authbannerimg.webp' alt='image' />
           </div>
         </div>
       </div>
